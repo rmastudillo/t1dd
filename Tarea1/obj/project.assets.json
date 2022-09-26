@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kaybb\\.nuget\\packages\\": {}
+    "C:\\Users\\kaybbe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kaybb\\Documents\\Diseño detallado\\Tarea 1\\Tarea1\\Tarea1.csproj",
+      "projectUniqueName": "D:\\Cosas de la u\\Semestre actual\\Diseño detallado de software\\t1dd\\Tarea1\\Tarea1.csproj",
       "projectName": "Tarea1",
-      "projectPath": "C:\\Users\\kaybb\\Documents\\Diseño detallado\\Tarea 1\\Tarea1\\Tarea1.csproj",
-      "packagesPath": "C:\\Users\\kaybb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kaybb\\Documents\\Diseño detallado\\Tarea 1\\Tarea1\\obj\\",
+      "projectPath": "D:\\Cosas de la u\\Semestre actual\\Diseño detallado de software\\t1dd\\Tarea1\\Tarea1.csproj",
+      "packagesPath": "C:\\Users\\kaybbe\\.nuget\\packages\\",
+      "outputPath": "D:\\Cosas de la u\\Semestre actual\\Diseño detallado de software\\t1dd\\Tarea1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kaybb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\kaybbe\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
