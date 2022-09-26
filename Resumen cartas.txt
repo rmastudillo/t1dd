@@ -1,0 +1,82 @@
+Las cartaas pueden se jugadas desde la mano o no.
+Cartas
+Manuver strike
+1. Depends on type; discard own; draw 1
+2. discard any
+3. None
+4. Turn buff.
+5. Specific card play before; draw 2 or opponent discard 2.
+6. None.
+7. Specific card play before; Reversal.
+8. discard top deck.
+9. Specific card play before; Reversal.
+10. Specific card play before; Reversal.
+11. Discard top deck.
+12. Specific card play before; Reversal.
+13. card self buff.
+14. Specific card play before; card self buff.
+15. opponent discard any.
+16. Specific card play before; Reversal.
+17. buff next played card.
+18. None.
+19. None.
+Manuver Grapple.
+1. Depends on type; discard own; draw 1.
+2. None.
+3. discard any.
+4. None.
+5. buff next specific played card.
+6. None.
+7. None.
+8. None.
+9. draw 1.
+10. look opponent's hand.
+11. opponent draw 1.
+12. Specific card play before; Reversal.
+13. None.
+14. buff next specific played card.
+15. None.
+16.  Specific card play before; Reversal.
+17.  Specific card play before; Reversal.
+18. Opponent discard 2 cards.
+19. draw 1.
+20. opponent discard  1.
+21. None.
+22. discard 1; Look oponent hand and discard 1.
+23. discard top deck; draw 1.
+24. discard top deck; opponent discard 2.
+25. opponent discard 1.
+26. draw 1; buff any specific card. (slam)
+27. discard top deck; opponent discard 2.
+Maneuver: Submission.
+1. doscard own; draw 1.
+2. None.
+3. discard any.
+4. none
+5. opponent discard 1.
+6. find a specific card from the arsenal; suffle arsenal.
+7. opponent discard 1.
+8. None.
+9.opponent discard 1.
+10. opponent draw 1.
+11. find a specific card from the arsenal; suffle arsenal.
+12. None
+13. findo 2 cards from discardpile; shuffle into  deck.
+14. find a specific card from the arsenal; suffle arsenal.
+15. find a specific card from the arsenal; suffle arsenal.
+16. opponent discard 1.
+17. opponent discard 1; draw 1.
+18. discard any 3; find a any card from the arsenal; add into your hand that card.; suffle arsenal.
+19. opponent discard 1.
+20. opponent discard 1.
+Reversals.
+1. Reverse strike; end opponent's turn.
+2. Reverse Grapple; end opponent's turn.
+3. Reverse submission; end opponent's turn.
+4. Reverse grapple <= 7D; end opponent's turn.; variable D.
+5. Reverse strike <= 7D; end opponent's turn; variable D.
+6. Reverse any <=7D; end opponent's turn.
+7. if played from hand, reverse specific card; opponent discard  4; end opponet's turn. draw 1.
+8. Reverse any; end opponent's turn; if played from hand, draw 1.
+9. Reverse specific
+ 

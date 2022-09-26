@@ -3,3 +3,4 @@
 Console.WriteLine("Hello, World!");
 Card hola = new Card();
 hola.Hola();
+Console.WriteLine(JsonSerializer.(hola.read_cards()));
