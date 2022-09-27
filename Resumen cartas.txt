@@ -1,4 +1,6 @@
 Las cartaas pueden se jugadas desde la mano o no.
+set-up - follow-up
+cartas pueden ser jugadas exitosamente o no.
 Cartas
 Manuver strike
 1. Depends on type; discard own; draw 1
@@ -78,5 +80,15 @@ Reversals.
 6. Reverse any <=7D; end opponent's turn.
 7. if played from hand, reverse specific card; opponent discard  4; end opponet's turn. draw 1.
 8. Reverse any; end opponent's turn; if played from hand, draw 1.
-9. Reverse specific
- 
+9. Reverse heel or reversal; if your opponent has 5 or more heel cards ins his ring area; opponent is desqualified; you win.
+10. Reverse action played  from opponent hand; if not, goes to his discard pile; end his turn.
+Actions.
+1. look the next 5 top deck cards. select: order them and returning or shufle your deck.
+2. look the next 5 top deck cards from your opponent's deck. select: order them and returning or make him shuffle his deck.
+3. look opponents hand.
+4. choose any from your hand, shuffle it into your deck; draw 2 cards.
+5. buff next specific card, choose buff +4d or +8F; revers specific card; end opponent's turn & set up specific card, select buff +4d or debuff for opponent +8F.
+6. look opponent hand; oponnent discard all heel cards.
+7. look opponent hand; oponent discard all face cards.
+8. special restriction on play; remove a card from opponents ring area with restrictions, move into his discard pile.
+
