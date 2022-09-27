@@ -1,7 +1,7 @@
 
 namespace Deck
 {
-  public class Card
+  public class Board
   {
     public void Hola()
     {
@@ -11,8 +11,5 @@ namespace Deck
     {
       return File.ReadAllText("Tarea1/Deck/cards.json");
     }
-  }
-  public class Superstar
-  {
   }
 }

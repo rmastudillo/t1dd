@@ -1,18 +1,15 @@
 
-namespace Deck
+namespace Players
 {
-  public class Card
+  public class Player
   {
     public void Hola()
     {
-      Console.WriteLine("GOLA");
+      Console.WriteLine("Bienvenida");
     }
     public string read_cards()
     {
       return File.ReadAllText("Tarea1/Deck/cards.json");
     }
-  }
-  public class Superstar
-  {
   }
 }
