@@ -3,7 +3,15 @@ namespace Deck
 {
   public class Card
   {
-    public void Hola()
+    public string? Title;
+    public string[]? Types;
+    public string[]? Subtypes;
+    public int? Fortitude;
+    public int? Damage;
+    public int? StunValue;
+    public string? CardEffect;
+    public string[]? Restrictions;
+    public void SetClass()
     {
       Console.WriteLine("GOLA");
     }
