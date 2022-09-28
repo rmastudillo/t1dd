@@ -8,8 +8,7 @@ Card hola = new Card();
 player1 = new Player();
 player2 = new Player();
 Board board = new Board();
-player1.Hola();
-board.Hola();
+
 void select_deck()
 {
   bool choosing_deck = true;

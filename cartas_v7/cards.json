@@ -13,16 +13,13 @@
         "StunValue": "0",
         "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent.",
         "Effect": {
-            "Action": [
-                "discard_this",
-                "draw_1"
+            "EffectAsAction": [
+                "player:draw_1"
             ],
-            "Maneuver": []
+            "EffectAsManeuver": []
         },
-        "Restriction": {
-            "Action": [],
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Punch",
@@ -37,11 +34,10 @@
         "StunValue": "0",
         "CardEffect": "",
         "Effect": {
-            "Maneuver": []
+            "EffectAsManeuver": []
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Head Butt",
@@ -56,13 +52,12 @@
         "StunValue": "0",
         "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
         "Effect": {
-            "Maneuver": [
-                "discard_1"
+            "EffectAsManeuver": [
+                "player:discard_1"
             ]
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Roundhouse Punch",
@@ -77,11 +72,10 @@
         "StunValue": "0",
         "CardEffect": "",
         "Effect": {
-            "Maneuver": []
+            "EffectAsManeuver": []
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Haymaker",
@@ -96,13 +90,12 @@
         "StunValue": "0",
         "CardEffect": "When successfully played, all Strike maneuvers are +1D for the rest of this turn.",
         "Effect": {
-            "Maneuver": [
-                "buff_thisturn_Strike_1D"
+            "EffectAsManeuver": [
+                "player:buff_Strike_thisturn_1D"
             ]
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Back Body Drop",
@@ -117,13 +110,12 @@
         "StunValue": "1",
         "CardEffect": "The card titled Irish Whip must be played before playing this card. When successfully played, you may either draw 2 cards, or force opponent to discard 2 cards.",
         "Effect": {
-            "Maneuver": [
-                "choose_draw_2;opponent_discard_2"
+            "EffectAsManeuver": [
+                "player:draw_2|opponent:discard_2"
             ]
         },
-        "Restriction": {
-            "Maneuver": "playedafter_Irish Whip"
-        }
+        "CardRequieredPlayedBeforeThis": "Irish Whip",
+        "CanBeReversed": true
     },
     {
         "Title": "Big Boot",
@@ -138,11 +130,10 @@
         "StunValue": "0",
         "CardEffect": "",
         "Effect": {
-            "Maneuver": []
+            "EffectAsManeuver": []
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Shoulder Block",
@@ -159,17 +150,11 @@
         "StunValue": "0",
         "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip.",
         "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
+            "EffectAsManeuver": [],
+            "EffectAsReversal": ["Reversal:Maneuver"]
         },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Irish Whip"
-            ]
-        }
+        "CardRequieredPlayedBeforeThis": "Reversal:Irish Whip&Maneuver",
+        "CanBeReversed": true
     },
     {
         "Title": "Kick",
@@ -184,13 +169,12 @@
         "StunValue": "0",
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile.",
         "Effect": {
-            "Maneuver": [
-                "discardtopdeck_1"
+            "EffectAsManeuver": [
+                "player:discardtopdeck_1"
             ]
         },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true
     },
     {
         "Title": "Cross Body Block",
@@ -207,19 +191,11 @@
         "StunValue": "0",
         "CardEffect": "The card titled Irish Whip must be played before playing this card. May only reverse a maneuver played after the card titled Irish Whip.",
         "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
+            "EffectAsManeuver": [],
+            "EffectAsReversal":["Reversal:Maneuver"]
         },
-        "Restriction": {
-            "Maneuver": [
-                "playedafter_Irish Whip"
-            ],
-            "Reversal": [
-                "chain_Irish Whip_Maneuver"
-            ]
-        }
+        "CardRequieredPlayedBeforeThis": "Reversal:Irish Whip&Maneuver,Maneuver:Irish Whip",
+        "CanBeReversed": true
     },
     {
         "Title": "Ensugiri",
@@ -234,19 +210,7 @@
         "Fortitude": "2",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "May only reverse the maneuver titled Kick.",
-        "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Kick"
-            ]
-        }
+        "CardEffect": "May only reverse the maneuver titled Kick."
     },
     {
         "Title": "Running Elbow Smash",
@@ -259,15 +223,7 @@
         "Fortitude": "2",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile.",
-        "Effect": {
-            "Maneuver": [
-                "discardtopdeck_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile."
     },
     {
         "Title": "Drop Kick",
@@ -282,19 +238,7 @@
         "Fortitude": "6",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "May only reverse the maneuver titled Drop Kick.",
-        "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Drop Kick"
-            ]
-        }
+        "CardEffect": "May only reverse the maneuver titled Drop Kick."
     },
     {
         "Title": "Discus Punch",
@@ -307,15 +251,7 @@
         "Fortitude": "7",
         "Damage": "9",
         "StunValue": "0",
-        "CardEffect": "Reversals to this maneuver are +2D.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_buff_nextcard_Reversal_2D"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "Reversals to this maneuver are +2D."
     },
     {
         "Title": "Superkick",
@@ -328,15 +264,7 @@
         "Fortitude": "0",
         "Damage": "5",
         "StunValue": "1",
-        "CardEffect": "When successfully played, +5D if played after a 5D or greater maneuver.",
-        "Effect": {
-            "Maneuver": [
-                "buffif_player_playedafter_maneuver5Dorgreater_5D"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, +5D if played after a 5D or greater maneuver."
     },
     {
         "Title": "Spinning Heel Kick",
@@ -349,15 +277,7 @@
         "Fortitude": "2",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Spear",
@@ -372,19 +292,7 @@
         "Fortitude": "4",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip.",
-        "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Irish Whip"
-            ]
-        }
+        "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip."
     },
     {
         "Title": "Clothesline",
@@ -397,15 +305,7 @@
         "Fortitude": "8",
         "Damage": "7",
         "StunValue": "1",
-        "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D.",
-        "Effect": {
-            "Maneuver": [
-                "buff_nextcard_Maneuver_2D"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D."
     },
     {
         "Title": "Chair Shot",
@@ -420,13 +320,7 @@
         "Fortitude": "10",
         "Damage": "10",
         "StunValue": "1",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Hurricanrana",
@@ -439,13 +333,7 @@
         "Fortitude": "11",
         "Damage": "10",
         "StunValue": "1",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Arm Bar Takedown",
@@ -459,18 +347,7 @@
         "Fortitude": "0",
         "Damage": "2",
         "StunValue": "0",
-        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent.",
-        "Effect": {
-            "Action": [
-                "discard_this",
-                "draw_1"
-            ],
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Action": [],
-            "Maneuver": []
-        }
+        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
     },
     {
         "Title": "Hip Toss",
@@ -483,13 +360,7 @@
         "Fortitude": "0",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Arm Drag",
@@ -502,15 +373,7 @@
         "Fortitude": "0",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
-        "Effect": {
-            "Maneuver": [
-                "discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, discard 1 card of your choice from your hand."
     },
     {
         "Title": "Russian Leg Sweep",
@@ -523,13 +386,7 @@
         "Fortitude": "2",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Snap Mare",
@@ -542,15 +399,7 @@
         "Fortitude": "3",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "When successfully played, if your next card played this turn is a Strike maneuver it is +2D.",
-        "Effect": {
-            "Maneuver": [
-                "buff_nextcard_Maneuver_2D"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, if your next card played this turn is a Strike maneuver it is +2D."
     },
     {
         "Title": "Gut Buster",
@@ -563,13 +412,7 @@
         "Fortitude": "4",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Body Slam",
@@ -582,13 +425,7 @@
         "Fortitude": "7",
         "Damage": "6",
         "StunValue": "1",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Back Breaker",
@@ -601,13 +438,7 @@
         "Fortitude": "8",
         "Damage": "7",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Double Leg Takedown",
@@ -620,15 +451,7 @@
         "Fortitude": "0",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you may draw 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you may draw 1 card."
     },
     {
         "Title": "Fireman's Carry",
@@ -641,15 +464,7 @@
         "Fortitude": "0",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you may look at your opponent's hand.",
-        "Effect": {
-            "Maneuver": [
-                "lookopponentshand"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you may look at your opponent's hand."
     },
     {
         "Title": "Headlock Takedown",
@@ -662,15 +477,7 @@
         "Fortitude": "0",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must draw 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must draw 1 card."
     },
     {
         "Title": "Belly to Belly Suplex",
@@ -685,18 +492,7 @@
         "Fortitude": "4",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "May only reverse the maneuver titled Belly to Belly Suplex.",
-        "Effect": {
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Belly to Belly Suplex"
-            ]
-        }
+        "CardEffect": "May only reverse the maneuver titled Belly to Belly Suplex."
     },
     {
         "Title": "Atomic Facebuster",
@@ -709,13 +505,7 @@
         "Fortitude": "4",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Atomic Drop",
@@ -728,15 +518,7 @@
         "Fortitude": "5",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D.",
-        "Effect": {
-            "Maneuver": [
-                "buff_nextcard_Maneuver_2D"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D."
     },
     {
         "Title": "Inverse Atomic Drop",
@@ -749,13 +531,7 @@
         "Fortitude": "6",
         "Damage": "5",
         "StunValue": "1",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Vertical Suplex",
@@ -770,19 +546,7 @@
         "Fortitude": "6",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "May only reverse the maneuver titled Vertical Suplex.",
-        "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Vertical Suplex"
-            ]
-        }
+        "CardEffect": "May only reverse the maneuver titled Vertical Suplex."
     },
     {
         "Title": "Belly to Back Suplex",
@@ -797,19 +561,7 @@
         "Fortitude": "8",
         "Damage": "7",
         "StunValue": "0",
-        "CardEffect": "May only reverse the maneuver titled Belly to Back Suplex.",
-        "Effect": {
-            "Maneuver": [],
-            "Reversal": [
-                "reversal"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": [],
-            "Reversal": [
-                "playedafter_Belly to Back Suplex"
-            ]
-        }
+        "CardEffect": "May only reverse the maneuver titled Belly to Back Suplex."
     },
     {
         "Title": "Pump Handle Slam",
@@ -822,15 +574,7 @@
         "Fortitude": "10",
         "Damage": "7",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 2 cards.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_2"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 2 cards."
     },
     {
         "Title": "Reverse DDT",
@@ -843,15 +587,7 @@
         "Fortitude": "12",
         "Damage": "9",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you may draw 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you may draw 1 card."
     },
     {
         "Title": "Samoan Drop",
@@ -864,15 +600,7 @@
         "Fortitude": "0",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Sit Out Powerbomb",
@@ -885,13 +613,7 @@
         "Fortitude": "3",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Bulldog",
@@ -904,17 +626,7 @@
         "Fortitude": "8",
         "Damage": "8",
         "StunValue": "0",
-        "CardEffect": "When successfully played, discard 1 card of your choice from your hand. Look at opponent's hand, then choose and discard 1 card from his hand.",
-        "Effect": {
-            "Maneuver": [
-                "discard_1",
-                "lookopponentshand",
-                "playyouropponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, discard 1 card of your choice from your hand. Look at opponent's hand, then choose and discard 1 card from his hand."
     },
     {
         "Title": "Fisherman's Suplex",
@@ -927,16 +639,7 @@
         "Fortitude": "10",
         "Damage": "10",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. You may draw 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "discardtopdeck_1",
-                "draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. You may draw 1 card."
     },
     {
         "Title": "DDT",
@@ -949,16 +652,7 @@
         "Fortitude": "11",
         "Damage": "9",
         "StunValue": "1",
-        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards.",
-        "Effect": {
-            "Maneuver": [
-                "discardtopdeck_1",
-                "opponent_discard_2"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards."
     },
     {
         "Title": "Power Slam",
@@ -970,17 +664,8 @@
         ],
         "Fortitude": "13",
         "Damage": "10",
-        "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card. SV: 1",
-        "Effect": {
-            "Maneuver": [
-                "discard_1",
-                "sv_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "StunValue": "1",
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Powerbomb",
@@ -993,16 +678,7 @@
         "Fortitude": "18",
         "Damage": "12",
         "StunValue": "2",
-        "CardEffect": "When successfully played, you may draw 1 card. Add +1D for every maneuver with the word \"slam\" in its title in your Ring area.",
-        "Effect": {
-            "Maneuver": [
-                "may_draw_1",
-                "buff_this_...."
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you may draw 1 card. Add +1D for every maneuver with the word \"slam\" in its title in your Ring area."
     },
     {
         "Title": "Press Slam",
@@ -1015,16 +691,7 @@
         "Fortitude": "24",
         "Damage": "15",
         "StunValue": "2",
-        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards.",
-        "Effect": {
-            "Maneuver": [
-                "discardtopdeck_1",
-                "opponent_discard_2"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards."
     },
     {
         "Title": "Collar & Elbow Lockup",
@@ -1038,17 +705,7 @@
         "Fortitude": "0",
         "Damage": "1",
         "StunValue": "0",
-        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent.",
-        "Effect": {
-            "Action": [
-                "may_discard_this&draw_1"
-            ],
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Action": [],
-            "Maneuver": []
-        }
+        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
     },
     {
         "Title": "Wrist Lock",
@@ -1061,13 +718,7 @@
         "Fortitude": "0",
         "Damage": "2",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Arm Bar",
@@ -1080,15 +731,7 @@
         "Fortitude": "0",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
-        "Effect": {
-            "Maneuver": [
-                "discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, discard 1 card of your choice from your hand."
     },
     {
         "Title": "Chin Lock",
@@ -1101,13 +744,7 @@
         "Fortitude": "2",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Bear Hug",
@@ -1120,15 +757,7 @@
         "Fortitude": "4",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Full Nelson",
@@ -1141,16 +770,7 @@
         "Fortitude": "6",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "searchfromdeck_Maintain Hold_hand",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal."
     },
     {
         "Title": "Choke Hold",
@@ -1164,15 +784,7 @@
         "Fortitude": "6",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Step Over Toe Hold",
@@ -1185,13 +797,7 @@
         "Fortitude": "8",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Ankle Lock",
@@ -1204,16 +810,7 @@
         "Fortitude": "0",
         "Damage": "2",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        ,
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Standing Side Headlock",
@@ -1226,16 +823,7 @@
         "Fortitude": "0",
         "Damage": "4",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must draw 1 card.",
-        ,
-        "Effect": {
-            "Maneuver": [
-                "opponent_draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must draw 1 card."
     },
     {
         "Title": "Cobra Clutch",
@@ -1248,16 +836,7 @@
         "Fortitude": "4",
         "Damage": "3",
         "StunValue": "0",
-        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "searchfromdeck_Maintain Hold_hand",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal."
     },
     {
         "Title": "Bow & Arrow",
@@ -1270,13 +849,7 @@
         "Fortitude": "6",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "",
-        "Effect": {
-            "Maneuver": []
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": ""
     },
     {
         "Title": "Chicken Wing",
@@ -1289,15 +862,7 @@
         "Fortitude": "12",
         "Damage": "7",
         "StunValue": "0",
-        "CardEffect": "When successfully played, shuffle 2 cards from your Ringside pile into your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "shufflediscard_2_deck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, shuffle 2 cards from your Ringside pile into your Arsenal."
     },
     {
         "Title": "Sleeper",
@@ -1310,16 +875,7 @@
         "Fortitude": "4",
         "Damage": "5",
         "StunValue": "0",
-        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "searchfromdeck_Maintain Hold_hand",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal."
     },
     {
         "Title": "Camel Clutch",
@@ -1332,16 +888,7 @@
         "Fortitude": "7",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "searchfromdeck_Maintain Hold_hand",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal."
     },
     {
         "Title": "Boston Crab",
@@ -1354,15 +901,7 @@
         "Fortitude": "10",
         "Damage": "8",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Guillotine Stretch",
@@ -1375,16 +914,7 @@
         "Fortitude": "12",
         "Damage": "8",
         "StunValue": "0",
-        "CardEffect": "When successfully played, opponent must discard 1 card and you may draw 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1",
-                "draw_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card and you may draw 1 card."
     },
     {
         "Title": "Abdominal Stretch",
@@ -1397,16 +927,7 @@
         "Fortitude": "13",
         "Damage": "6",
         "StunValue": "0",
-        "CardEffect": "When successfully played, you may discard 3 cards, search through your Arsenal and put 1 card into your hand, then shuffle your Arsenal.",
-        "Effect": {
-            "Maneuver": [
-                "may_discard_3&searchandput_1....",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, you may discard 3 cards, search through your Arsenal and put 1 card into your hand, then shuffle your Arsenal."
     },
     {
         "Title": "Torture Rack",
@@ -1419,15 +940,7 @@
         "Fortitude": "13",
         "Damage": "9",
         "StunValue": "1",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Figure Four Leg Lock",
@@ -1440,15 +953,7 @@
         "Fortitude": "19",
         "Damage": "12",
         "StunValue": "1",
-        "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "Effect": {
-            "Maneuver": [
-                "opponent_discard_1"
-            ]
-        },
-        "Restriction": {
-            "Maneuver": []
-        }
+        "CardEffect": "When successfully played, opponent must discard 1 card."
     },
     {
         "Title": "Step Aside",
@@ -1461,18 +966,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Reverse any Strike maneuver and end your opponent's turn.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "playedafter_Strike"
-            ]
-        }
+        "CardEffect": "Reverse any Strike maneuver and end your opponent's turn."
     },
     {
         "Title": "Escape Move",
@@ -1485,18 +979,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Reverse any Grapple maneuver and end your opponent's turn.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "playedafter_Grapple"
-            ]
-        }
+        "CardEffect": "Reverse any Grapple maneuver and end your opponent's turn."
     },
     {
         "Title": "Break the Hold",
@@ -1509,18 +992,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Reverse any Submission maneuver and end your opponent's turn.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "playedafter_Submission"
-            ]
-        }
+        "CardEffect": "Reverse any Submission maneuver and end your opponent's turn."
     },
     {
         "Title": "Rolling Takedown",
@@ -1533,18 +1005,7 @@
         "Fortitude": "1",
         "Damage": "#",
         "StunValue": "0",
-        "CardEffect": "Can only reverse a Grapple that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "..."
-            ]
-        }
+        "CardEffect": "Can only reverse a Grapple that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area."
     },
     {
         "Title": "Knee to the Gut",
@@ -1557,19 +1018,7 @@
         "Fortitude": "1",
         "Damage": "#",
         "StunValue": "0",
-        "CardEffect": "Can only reverse a Strike that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn",
-                "# = D of maneuver card being reversed, 0 if played from ring area"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "Specialstrike_7D"
-            ]
-        }
+        "CardEffect": "Can only reverse a Strike that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area."
     },
     {
         "Title": "Elbow to the Face",
@@ -1582,18 +1031,7 @@
         "Fortitude": "0",
         "Damage": "2",
         "StunValue": "0",
-        "CardEffect": "May reverse any maneuver that does 7D or less. End your opponent's turn.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "Specialmaneuverstrike_7D"
-            ]
-        }
+        "CardEffect": "May reverse any maneuver that does 7D or less. End your opponent's turn."
     },
     {
         "Title": "Clean Break",
@@ -1607,21 +1045,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "If played from your hand, may reverse the card titled Jockeying for Position. Opponent must discard 4 cards. End your opponent's turn. Draw 1 card.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "opponent_discard_4",
-                "end_opponents_turn",
-                "draw_1"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "playedfromhand",
-                "Jockeying for Position"
-            ]
-        }
+        "CardEffect": "If played from your hand, may reverse the card titled Jockeying for Position. Opponent must discard 4 cards. End your opponent's turn. Draw 1 card."
     },
     {
         "Title": "Manager Interferes",
@@ -1635,19 +1059,7 @@
         "Fortitude": "10",
         "Damage": "1",
         "StunValue": "0",
-        "CardEffect": "Reverse any maneuver and end your opponent's turn. If played from your hand draw 1 card.",
-        "Effect": {
-            "Reversal": [
-                "reversal",
-                "end_opponents_turn",
-                "if:playedfromhand=>draw_1"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "Maneuver"
-            ]
-        }
+        "CardEffect": "Reverse any maneuver and end your opponent's turn. If played from your hand draw 1 card."
     },
     {
         "Title": "Disqualification!",
@@ -1661,18 +1073,7 @@
         "Fortitude": "10",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Reverse any HEEL maneuver or reversal card if that opponent has 5 or more HEEL cards in his Ring area. Opponent is Disqualified and you win the game. This effect happens even if the card titled Disqualification is placed into your Ringside pile while applying damage from a HEEL maneuver or reversal card.",
-        "Effect": {
-            "Reversal": [
-                "WIN"
-            ]
-        },
-        "Restriction": {
-            "Reversal": [
-                "HEEL",
-                "if:opponent_has_5_or_more_HELL=>draw_1"
-            ]
-        }
+        "CardEffect": "Reverse any HEEL maneuver or reversal card if that opponent has 5 or more HEEL cards in his Ring area. Opponent is Disqualified and you win the game. This effect happens even if the card titled Disqualification is placed into your Ringside pile while applying damage from a HEEL maneuver or reversal card."
     },
     {
         "Title": "No Chance in Hell",
@@ -1685,15 +1086,7 @@
         "Fortitude": "12",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Reverse any ACTION card being played by your opponent from his hand. It is unsuccessful, goes to his Ringside pile, has no effect and ends his turn.",
-        "Effect": {
-            "Reversal": []
-        },
-        "Restriction": {
-            "Reversal": [
-                "ACTION"
-            ]
-        }
+        "CardEffect": "Reverse any ACTION card being played by your opponent from his hand. It is unsuccessful, goes to his Ringside pile, has no effect and ends his turn."
     },
     {
         "Title": "Hmmm",
@@ -1704,14 +1097,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Look at the top 5 cards of your Arsenal. You may either arrange them in any order or shuffle your Arsenal.",
-        "Effect": {
-            "Action": [
-                "look_5topdeck then arrange themn...",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "Look at the top 5 cards of your Arsenal. You may either arrange them in any order or shuffle your Arsenal."
     },
     {
         "Title": "Don't Think Too Hard",
@@ -1722,14 +1108,7 @@
         "Fortitude": "0",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Look at the top 5 cards of an opponent's Arsenal. You may either arrange them in any order or make him shuffle his Arsenal.",
-        "Effect": {
-            "Action": [
-                "look_5topdeck then arrange themn...",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "Look at the top 5 cards of an opponent's Arsenal. You may either arrange them in any order or make him shuffle his Arsenal."
     },
     {
         "Title": "Whaddya Got?",
@@ -1740,13 +1119,7 @@
         "Fortitude": "2",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Look at opponent's hand.",
-        "Effect": {
-            "Action": [
-                "lookoppoennthand"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "Look at opponent's hand."
     },
     {
         "Title": "Not Yet",
@@ -1757,14 +1130,7 @@
         "Fortitude": "4",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Take a card in your hand, shuffle it into your Arsenal, then draw 2 cards.",
-        "Effect": {
-            "Action": [
-                "choose_1 card_ shuffle into deck",
-                "draw_2"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "Take a card in your hand, shuffle it into your Arsenal, then draw 2 cards."
     },
     {
         "Title": "Jockeying for Position",
@@ -1779,14 +1145,7 @@
         "Fortitude": "4",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "As an action, if your next card played is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F. As a reversal, may only reverse the card titled Jockeying for Position. If so, you end opponent's turn; and if your next card played on your turn is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F.",
-        "Effect": {
-            "Action": [
-                "....",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "As an action, if your next card played is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F. As a reversal, may only reverse the card titled Jockeying for Position. If so, you end opponent's turn; and if your next card played on your turn is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F."
     },
     {
         "Title": "Irish Whip",
@@ -1801,14 +1160,7 @@
         "Fortitude": "5",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "As an action, if your next card played is a Strike maneuver it is +5D. As a reversal, may only reverse the card titled Irish Whip. If so, you end opponent's turn; and if your next card played on your turn is a Strike maneuver it is +5D.",
-        "Effect": {
-            "Action": [
-                "....",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "As an action, if your next card played is a Strike maneuver it is +5D. As a reversal, may only reverse the card titled Irish Whip. If so, you end opponent's turn; and if your next card played on your turn is a Strike maneuver it is +5D."
     },
     {
         "Title": "Flash in the Pan",
@@ -1821,14 +1173,7 @@
         "Fortitude": "6",
         "Damage": "0",
         "StunValue": "0",
-        "CardEffect": "Draw 1 card. Look at opponent's hand, and then make him discard all HEEL cards.",
-        "Effect": {
-            "Action": [
-                "....",
-                "shuffledeck"
-            ]
-        },
-        "Restriction": {}
+        "CardEffect": "Draw 1 card. Look at opponent's hand, and then make him discard all HEEL cards."
     },
     {
         "Title": "View of Villainy",
@@ -2177,7 +1522,7 @@
         "Fortitude": "30",
         "Damage": "25",
         "StunValue": "3",
-        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
+        "CardEffect": "As an action, this card is -30F and -25D, discard this card and draw 1 card."
     },
     {
         "Title": "Power of Darkness",
