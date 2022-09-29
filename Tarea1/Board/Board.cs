@@ -11,5 +11,6 @@ namespace Deck
     {
       return File.ReadAllText("Tarea1/Deck/cards.json");
     }
+    
   }
 }

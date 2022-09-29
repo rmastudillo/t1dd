@@ -28,3 +28,5 @@ D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\obj\D
 D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\obj\Debug\net6.0\Tarea1.pdb
 D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\obj\Debug\net6.0\Tarea1.genruntimeconfig.cache
 D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\obj\Debug\net6.0\ref\Tarea1.dll
+D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Cosas de la u\Semestre actual\Diseño detallado de software\t1dd\Tarea1\obj\Debug\net6.0\Tarea1.csproj.CopyComplete

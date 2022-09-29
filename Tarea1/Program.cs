@@ -1,15 +1,16 @@
 ﻿using Deck;
 using Players;
-string decks_dir = "decks";
+using System.Text.Json;
+/* string decks_dir = "decks"; */
+
 Player player1;
 Player player2;
 Console.WriteLine("Hello, World!");
-Card hola = new Card();
 player1 = new Player();
 player2 = new Player();
 Board board = new Board();
 
-void select_deck()
+/* void select_deck()
 {
   bool choosing_deck = true;
   string[] files = Directory.GetFiles(decks_dir);
@@ -46,4 +47,20 @@ void select_deck()
 
   }
 }
-select_deck();
+ select_deck();  */
+ 
+List<Card>Load(){
+  string fileName = "Tarea1/Deck/cards.json";
+  string jsonString = File.ReadAllText(fileName);
+  List<Card> cardList= JsonSerializer.Deserialize<List<Card>>(jsonString);
+ return cardList; 
+};
+List<Card> cartas = Load();
+string hola = "0";
+int h = Convert.ToInt32(hola);
+Console.WriteLine(h);
+foreach(var car in cartas)
+{
+  Console.WriteLine(car.ToString());
+} 
+
