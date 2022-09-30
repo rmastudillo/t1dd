@@ -14,11 +14,28 @@
         "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent.",
         "Effect": {
             "EffectAsAction": [
+                "player:discard_this",
                 "player:draw_1"
             ],
             "EffectAsManeuver": []
         },
-        "CardRequieredPlayedBeforeThis": "",
+        "CanBeReversed": true,
+        "PlayedAs": {
+            "Maneuver": {
+                "Effect": [                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "Duration": "thisturn",
+                    "Value": "+1D",
+                    "Affect": "Stricke"
+                }]
+            },
+            "Action": {
+                "Effect": [],
+                "CardRequieredPlayedBeforeThis": "Irish Whip"
+            },
+            "Both": {}
+        },
         "CanBeReversed": true
     },
     {
@@ -91,7 +108,13 @@
         "CardEffect": "When successfully played, all Strike maneuvers are +1D for the rest of this turn.",
         "Effect": {
             "EffectAsManeuver": [
-                "player:buff_Strike_thisturn_1D"
+                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "Duration": "thisturn",
+                    "Value": "+1D",
+                    "Affect": "Stricke"
+                }
             ]
         },
         "CardRequieredPlayedBeforeThis": "",
@@ -149,13 +172,16 @@
         "Damage": "3",
         "StunValue": "0",
         "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip.",
-        "Effect": {
-            "EffectAsManeuver": [],
-            "EffectAsReversal": [
-                "Reversal:Maneuver"
-            ]
+        "PlayedAs": {
+            "Maneuver": {
+                "Effect": []
+            },
+            "Reversal": {
+                "Effect": [],
+                "CardRequieredPlayedBeforeThis": "Irish Whip"
+            },
+            "Both": {}
         },
-        "CardRequieredPlayedBeforeThis": "Reversal:Irish Whip&Maneuver",
         "CanBeReversed": true
     },
     {

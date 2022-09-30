@@ -1,0 +1,482 @@
+[
+    {
+        "Title": "Chop",
+        "Types": [
+            "Action",
+            "Maneuver"
+        ],
+        "Subtypes": [
+            "Strike"
+        ],
+        "Fortitude": 0,
+        "Damage": 2,
+        "StunValue": 0,
+        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
+    },
+    {
+        "Title": "Arm Bar Takedown",
+        "Types": [
+            "Action",
+            "Maneuver"
+        ],
+        "Subtypes": [
+            "Grapple"
+        ],
+        "Fortitude": 0,
+        "Damage": 2,
+        "StunValue": 0,
+        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
+    },
+    {
+        "Title": "Collar & Elbow Lockup",
+        "Types": [
+            "Action",
+            "Maneuver"
+        ],
+        "Subtypes": [
+            "Submission"
+        ],
+        "Fortitude": 0,
+        "Damage": 1,
+        "StunValue": 0,
+        "CardEffect": "As an action, you may discard this card to draw 1 card. Doing this will not cause any damage to opponent."
+    },
+    {
+        "Title": "Hmmm",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 0,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Look at the top 5 cards of your Arsenal. You may either arrange them in any order or shuffle your Arsenal."
+    },
+    {
+        "Title": "Don't Think Too Hard",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 0,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Look at the top 5 cards of an opponent's Arsenal. You may either arrange them in any order or make him shuffle his Arsenal."
+    },
+    {
+        "Title": "Whaddya Got?",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Look at opponent's hand."
+    },
+    {
+        "Title": "Not Yet",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 4,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Take a card in your hand, shuffle it into your Arsenal, then draw 2 cards."
+    },
+    {
+        "Title": "Flash in the Pan",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Face"
+        ],
+        "Fortitude": 6,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 1 card. Look at opponent's hand, and then make him discard all HEEL cards."
+    },
+    {
+        "Title": "View of Villainy",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Heel"
+        ],
+        "Fortitude": 6,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 1 card. Look at opponent's hand, and then make him discard all FACE cards."
+    },
+    {
+        "Title": "Shake It Off",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Playable only if your Fortitude Rating is less than your opponent's Fortitude Rating. Remove any 1 card in opponent's Ring area with a D value less than or equal to your total Fortitude Rating and place it into his Ringside pile."
+    },
+    {
+        "Title": "Offer Handshake",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Face"
+        ],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw up to 3 cards, then discard 1 card."
+    },
+    {
+        "Title": "Roll Out of the Ring",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Discard up to 2 cards from your hand to your Ringside pile. Return an equal number of cards of your choice to your hand from your Ringside pile."
+    },
+    {
+        "Title": "Distract the Ref",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Heel"
+        ],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 1 card. Look at opponent's hand. If he has any cards titled Disqualification! he must discard them."
+    },
+    {
+        "Title": "Recovery",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 4,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Shuffle any 2 cards from your Ringside pile back into your Arsenal. Then draw 1 card."
+    },
+    {
+        "Title": "Spit At Opponent",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Heel"
+        ],
+        "Fortitude": 4,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "You discard 1 card. Your opponent discards 4 cards."
+    },
+    {
+        "Title": "Get Crowd Support",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Face"
+        ],
+        "Fortitude": 10,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 1 card. Your next maneuver this turn is +4D and opponent's reversals are +12F."
+    },
+    {
+        "Title": "Comeback!",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 0,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Discard 3 cards of your choice from your hand. All players compare their current Fortitude Rating. The player(s) with a higher Fortitude Rating must remove maneuver and/or reversal cards from their Ring area, putting them into his Ringside pile, until that player's Fortitude Rating is less than or equal to the others."
+    },
+    {
+        "Title": "Ego Boost",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 0,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Your next card played is -5F. If opponent forces you to discard a card from your hand, you may choose to discard this card from your hand and then draw up to 2 cards."
+    },
+    {
+        "Title": "Deluding Yourself",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Heel"
+        ],
+        "Fortitude": 8,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 4 cards. At end of turn, discard your hand."
+    },
+    {
+        "Title": "Stagger",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 3,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Play after a successfully played maneuver. If your next card played this turn is a maneuver of 7D or less your opponent can not reverse it."
+    },
+    {
+        "Title": "Diversion",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 17,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Your next maneuver may not be reversed."
+    },
+    {
+        "Title": "Marking Out",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Face"
+        ],
+        "Fortitude": 13,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Choose one: Look through your Arsenal and put 1 card in your hand, shuffle it and end your turn; or go through opponent's Arsenal and put any 3 cards into his Ringside pile, then shuffle his Arsenal."
+    },
+    {
+        "Title": "Puppies! Puppies!",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 14,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Shuffle up to 5 cards from your Ringside pile into your Arsenal. Then draw 2 cards."
+    },
+    {
+        "Title": "Shane O'Mac",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 15,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "While this card is in your Ring area, at the start of your turn, before your draw segment, opponent must take the top card from his Arsenal and place it into his Ringside pile."
+    },
+    {
+        "Title": "Maintain Hold",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [],
+        "Fortitude": 10,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Play after a successful Submission maneuver not reversed and end your turn. You and your opponent may not play maneuvers or actions until your opponent reverses the maintained Submission. On your turn, during the main segment, the Submission does its damage, along with any other abilities on the card. If a reversal is played by your opponent or is revealed while applying damage, both Maintain Hold and the Submission maneuver remain in your Ring area, but you may no longer use the ability of this Maintain Hold card."
+    },
+    {
+        "Title": "Pat & Gerry",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Face"
+        ],
+        "Fortitude": 18,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Opponent skips his next turn."
+    },
+
+   
+
+    {
+        "Title": "Open Up a Can of Whoop-A%$",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "StoneCold",
+            "Unique"
+        ],
+        "Fortitude": 2,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Your next maneuver this turn is +6D, and your opponent's reversal to it is +20F. Draw a card."
+    },
+    {
+        "Title": "Undertaker's Tombstone Piledriver",
+        "Types": [
+            "Action",
+            "Maneuver"
+        ],
+        "Subtypes": [
+            "TrademarkFinisher",
+            "Undertaker",
+            "Unique"
+        ],
+        "Fortitude": 30,
+        "Damage": 25,
+        "StunValue": 3,
+        "CardEffect": "As an action, this card is -30F and -25D, discard this card and draw 1 card."
+    },
+    {
+        "Title": "Power of Darkness",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Undertaker",
+            "Unique"
+        ],
+        "Fortitude": 12,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "+5D to all your maneuvers and +20F to all of opponent's reversals for the rest of this turn."
+    },
+    {
+        "Title": "Mr. Socko",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Mankind",
+            "Unique"
+        ],
+        "Fortitude": 20,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Take 1 card from either your Arsenal or Ringside pile and place it into your hand, then shuffle your Arsenal. While Mr. Socko is in your Ring area, all your maneuvers are +1D."
+    },
+    {
+        "Title": "I Am the Game",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "HHH",
+            "Unique"
+        ],
+        "Fortitude": 3,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "All your maneuvers are +3D for the rest of this turn. Draw 2 cards, or force opponent to discard 2 cards."
+    },
+
+    {
+        "Title": "Smackdown Hotel",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "TheRock",
+            "Unique"
+        ],
+        "Fortitude": 0,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw 1 card. Look at your opponent's hand. Your next maneuver this turn is +6D."
+    },
+
+
+    {
+        "Title": "The People's Eyebrow",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "TheRock",
+            "Unique"
+        ],
+        "Fortitude": 7,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Take any 2 cards from your Ringside pile and put them into your hand. Then take any 2 cards from your Ringside pile and shuffle them back into your Arsenal."
+    },
+    {
+        "Title": "The People's Elbow",
+        "Types": [
+            "Action",
+            "Maneuver"
+        ],
+        "Subtypes": [
+            "TrademarkFinisher",
+            "TheRock",
+            "Unique"
+        ],
+        "Fortitude": 0,
+        "Damage": 10,
+        "StunValue": 3,
+        "CardEffect": "As a maneuver, this card can only be played if the card titled Rock Bottom is in your Ring area. As an action, place this card back in your Arsenal, shuffle, then draw 2 cards. Doing this will not cause any damage to opponent."
+    },
+
+    {
+        "Title": "Hellfire & Brimstone",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Kane",
+            "Unique"
+        ],
+        "Fortitude": 6,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "All players discard all cards from their hands. Your opponent places the top 5 cards of his Arsenal into his Ringside pile."
+    },
+
+    {
+        "Title": "Y2J",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Jericho",
+            "Unique"
+        ],
+        "Fortitude": 5,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Draw up to 5 Cards or force opponent to discard up to 5 cards."
+    },
+
+    {
+        "Title": "Ayatollah of Rock 'n' Roll-a",
+        "Types": [
+            "Action"
+        ],
+        "Subtypes": [
+            "Jericho",
+            "Unique"
+        ],
+        "Fortitude": 12,
+        "Damage": 0,
+        "StunValue": 0,
+        "CardEffect": "Look at your opponent's hand. For the rest of this turn, your opponent's reversals revealed from his Arsenal while applying damage may not reverse your maneuvers."
+    }
+]

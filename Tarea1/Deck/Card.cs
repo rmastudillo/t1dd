@@ -30,10 +30,10 @@ namespace Deck
     }
     public override string ToString()
     {
-        string type_text = "[ " + string.Join(",", this.Types) + "]";
-        string subtype_text = "[ " + string.Join(",", this.Subtypes) + "]";
+        string type_text = "[" + string.Join(",", this.Types) + "]";
+        string subtype_text = "[" + string.Join(",", this.Subtypes) + "]";
         string effect_text = DirectToString(this.Effect);
-        return String.Format("Title:  {0},\n    Types: {1},\n    Subtypes: {2},\n    Fortitude: {3},\n    Damage: {4},\n    StunValue: {5},\n    Effect: {6},\n    CardRequieredPlayedBeforeThis: {7},\n    CanBeReversed: {8}\n",
+        return String.Format("Title:  {0},\n    Types: {1},\n    Subtypes: {2},\n    Fortitude: {3},\n    Damage: {4},\n    StunValue: {5},\n    Effect: {6},\n    CardRequieredPlayedBeforeThis: \"{7}\",\n    CanBeReversed: {8}\n",
         Title, type_text, subtype_text, Fortitude,Damage,StunValue,effect_text,CardRequieredPlayedBeforeThis,CanBeReversed);
     }
 

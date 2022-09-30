@@ -1,0 +1,297 @@
+﻿
+-------------------------------------------------------------------
+NOMENCLATURA
+-------------------------------------------------------------------
+
+En este archivo, cada carta es descrita usando el siguiente formato.
+
+1. La primera línea indica el título de la carta.
+
+2. La segunda línea indica su tipo. Los tipos pueden ser los siguientes:
+    - Maniobras son de uno de estos tipos: 
+         Strike, Grapple, Submission, High Risk o Trademark Finisher.
+    - Acciones son del tipo Action.
+    - Reversal son del tipo Reversal.
+   También hay cartas hídridas que contienen dos tipos. Los tipos posibles de esas cartas aparecen separados con un slash.
+    - Strike / Action -> es una carta que puede ser jugada como maniobra o acción.
+    - Action: Set-up / Reversal: Special -> es una carta que puede ser jugada como acción o como reversal.
+    - Trademark Finisher / Reversal: Special -> es una carta que puede ser jugada como maniobra o como reversal.
+
+3. Las siguientes línea explican el efecto de la carta.
+
+4. La última línea muestra el Fortitude Value (con una F) y el Damage Value (con una D) de la carta. 
+   Por defecto, el Stun Value de una carta es cero. Cuando no lo sea, será indicado usando la nomenclatura "SV".
+
+Abajo aparece la lista de cartas que debes implementar.
+
+
+
+---------------------
+Shoulder Block
+Strike / Reversal: Special
+May only reverse a maneuver played after the card titled Irish Whip.
+F: 0	D: 3
+---------------------
+---------------------
+Cross Body Block
+Strike / Reversal: Special
+The card titled Irish Whip must be played before playing this card.
+May only reverse a maneuver played after the card titled Irish Whip.
+F: 0	D: 7
+---------------------
+---------------------
+Ensugiri
+Strike / Reversal: Special
+May only reverse the maneuver titled Kick.
+F: 2	D: 4
+---------------------
+---------------------
+Drop Kick
+Strike / Reversal: Special
+May only reverse the maneuver titled Drop Kick.
+F: 6	D: 6
+---------------------
+---------------------
+Spear
+Strike / Reversal: Special
+May only reverse a maneuver played after the card titled Irish Whip.
+F: 4	D: 5
+---------------------
+---------------------
+Belly to Belly Suplex
+Grapple / Reversal: Special
+May only reverse the maneuver titled Belly to Belly Suplex.
+F: 4	D: 5
+---------------------
+---------------------
+Vertical Suplex
+Grapple / Reversal: Special
+May only reverse the maneuver titled Vertical Suplex.
+F: 6	D: 6
+---------------------
+---------------------
+Belly to Back Suplex
+Grapple / Reversal: Special
+May only reverse the maneuver titled Belly to Back Suplex.
+F: 8	D: 7
+---------------------
+-------------------------------------------------------------------
+ REVERSALS
+-------------------------------------------------------------------
+---------------------
+Step Aside
+Reversal: Strike
+Reverse any Strike maneuver and end your opponent's turn.
+F: 0	D: 0
+---------------------
+---------------------
+Escape Move
+Reversal: Grapple
+Reverse any Grapple maneuver and end your opponent's turn.
+F: 0	D: 0
+---------------------
+---------------------
+Break the Hold
+Reversal: Submission
+Reverse any Submission maneuver and end your opponent's turn.
+F: 0	D: 0
+---------------------
+---------------------
+Rolling Takedown
+Reversal: Grapple: Special
+Can only reverse a Grapple that does 7D or less. End your opponent's turn.
+# = D of maneuver card being reversed. Read as 0 when in your Ring area.
+F: 1	D: #
+---------------------
+---------------------
+Knee to the Gut
+Reversal: Strike: Special
+Can only reverse a Strike that does 7D or less. End your opponent's turn.
+# = D of maneuver card being reversed. Read as 0 when in your Ring area.
+F: 1	D: #
+---------------------
+---------------------
+Elbow to the Face
+Reversal: Special
+May reverse any maneuver that does 7D or less. End your opponent's turn.
+F: 0	D: 2
+---------------------
+---------------------
+Clean Break
+Reversal: Special: Face
+If played from your hand, may reverse the card titled Jockeying for Position. Opponent must discard 4 cards. End your opponent's turn. Draw 1 card.
+F: 0	D: 0
+---------------------
+---------------------
+Manager Interferes
+Reversal: Special: Heel
+Reverse any maneuver and end your opponent's turn.
+If played from your hand draw 1 card.
+F: 10	D: 1
+---------------------
+---------------------
+Disqualification!
+Reversal: Special: Face
+Reverse any HEEL maneuver or reversal card if that opponent has 5 or more HEEL cards in his Ring area. Opponent is Disqualified and you win the game.
+This effect happens even if the card titled Disqualification is placed into your Ringside pile while applying damage from a HEEL maneuver or reversal card.
+F: 10	D: 0
+---------------------
+---------------------
+No Chance in Hell
+Reversal: Action
+Reverse any ACTION card being played by your opponent from his hand.
+It is unsuccessful, goes to his Ringside pile, has no effect and ends his turn.
+F: 12	D: 0
+---------------------
+---------------------
+Jockeying for Position
+Action: Set-up / Reversal: Special
+As an action, if your next card played is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F.
+As a reversal, may only reverse the card titled Jockeying for Position. If so, you end opponent's turn; and if your next card played on your turn is a Grapple maneuver, declare whether it will be +4D or your opponent's reversal to it will be +8F.
+F: 4	D: 0
+---------------------
+---------------------
+Irish Whip
+Action: Set-up / Reversal: Special
+As an action, if your next card played is a Strike maneuver it is +5D.
+As a reversal, may only reverse the card titled Irish Whip. If so, you end opponent's turn; and if your next card played on your turn is a Strike maneuver it is +5D.
+F: 5	D: 0
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE STONE COLD STEVE AUSTIN
+-------------------------------------------------------------------
+
+---------------------
+Lou Thesz Press
+Reversal: Special
+If played from your hand, may reverse a maneuver played after the card titled Irish Whip. End your opponent's turn. You may draw 1 card.
+Unique
+F: 0	D: 15
+---------------------
+---------------------
+Double Digits
+Reversal: Special
+Reverse any Strike, Grapple or Submission maneuver. End your opponent's turn.
+If played from your hand, opponent must discard 2 cards, then take the top 2 cards from his Arsenal and put them into his Ringside pile. 
+Unique
+F: 0	D: 0
+---------------------
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE THE UNDERTAKER
+-------------------------------------------------------------------
+---------------------
+Undertaker Sits Up!
+Reversal: Special
+Reverse any maneuver and end your opponent's turn.
+If played from your hand, take the top 4 cards from your Arsenal and put them in your Ringside pile. Opponent must discard 1 card; next turn, all your maneuvers are +2D, and all opponent's reversals are +25F.
+Unique
+F: 15	D: 0
+---------------------
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE MANKIND
+-------------------------------------------------------------------
+
+---------------------
+Have a Nice Day!
+Reversal: Special
+Reverse any Strike, Grapple or Submission maneuver. End your opponent's turn.
+If played from your hand, opponent discards all cards in his hand.
+Unique
+F: 5	D: 0
+---------------------
+---------------------
+Double Arm DDT
+Maneuver: Grapple / Reversal: Special
+May only reverse the maneuver titled Back Body Drop.
+Unique
+SV: 2	F: 15	D: 15
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE HHH
+-------------------------------------------------------------------
+
+---------------------
+Facebuster
+Reversal: Special
+If played from your hand, may reverse a maneuver played after the card titled Irish Whip. End your opponent's turn. You may draw 2 cards.
+Unique
+F: 0	D: 10
+---------------------
+---------------------
+Pedigree
+Trademark Finisher / Reversal: Special   (Maneuver)
+When successfully played, +2D if played after a Strike maneuver.
+May only reverse the maneuver titled Back Body Drop.
+Unique
+SV: 3	F: 30	D: 25
+---------------------
+---------------------
+Chyna Interferes
+Reversal: Special
+Reverses any maneuver and ends your opponent's turn.
+If played from your hand, draw 2 cards.
+Unique
+F: 5	D: 3
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE THE ROCK
+-------------------------------------------------------------------
+
+---------------------
+Take That Move, Shine It Up Real Nice, Turn That Sumb*tch Sideways, and Stick It Straight Up Your Roody Poo Candy A%$!
+Reversal: Special
+Reverse any Strike, Grapple or Submission maneuver. End your opponent's turn.
+If played from your hand, shuffle up to 5 cards from your Ringside pile into your Arsenal.
+Unique
+F: 4	D: 0
+---------------------
+---------------------
+Rock Bottom
+Grapple / Reversal: Special   (Maneuver)
+When successfully played, look through your Ringside pile and Arsenal for the card titled The People's Elbow and place that card in your hand, then shuffle your Arsenal.
+May only reverse a Grapple maneuver, but you must first discard 1 card.
+Unique
+SV: 2	F: 30	D: 20
+---------------------
+
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE KANE
+-------------------------------------------------------------------
+
+---------------------
+Kane's Flying Clothesline
+High Risk   (Maneuver)
+Can only be played after a 4D or greater maneuver.
+Reversals to this maneuver are +6D.
+Unique
+SV: 2	F: 8	D: 16
+---------------------
+---------------------
+Kane's Return!
+Reversal: Special
+Reverse any maneuver and end your opponent's turn.
+If played from your hand, take the top 4 cards from your Arsenal and put them in your Ringside pile; next turn, all your maneuvers are +2D, and all opponents reversals are +15F.
+Unique
+F: 10	D: 0
+---------------------
+---------------------
+
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE CHRIS JERICHO
+-------------------------------------------------------------------
+
+---------------------
+---------------------
+Don't You Never... EVER!
+Reversal: Special
+Reverse any Strike, Grapple or Submission maneuver. End your opponent's turn. 
+If played from your hand, opponent must discard 2 cards and all your maneuvers next turn are +2D.
+Unique
+F: 2	D: 0
+---------------------
+---------------------

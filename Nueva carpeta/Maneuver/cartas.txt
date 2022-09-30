@@ -1,0 +1,420 @@
+﻿-------------------------------------------------------------------
+ MANEUVER: Strike
+-------------------------------------------------------------------
+---------------------
+Punch
+---------------------
+Head Butt
+discard 1 card of your choice from your hand.
+---------------------
+Roundhouse Punch
+---------------------
+Haymaker
+Strike
+Buff  all Strike maneuvers are +1D for the rest of this turn.
+---------------------
+Back Body Drop
+Strike
+Restriccion: The card titled Irish Whip must be played before playing this card.
+Efecto:      When successfully played, you may either draw 2 cards, or force opponent to discard 2 cards.
+---------------------
+Big Boot
+---------------------
+Kick
+Strike
+Discard top deck  into  discard pile.
+---------------------
+Running Elbow Smash
+Strike
+Discard top deck  into  discard pile.
+---------------------
+Discus Punch
+Strike
+Buff this card against Reversals: Reversals to this maneuver are +2D.
+---------------------
+Superkick
+Strike
+Combo, played after 5D or greater maneuver => buff this +5D
+---------------------
+Spinning Heel Kick
+Strike
+Opponent discard 1 card
+---------------------
+Clothesline
+Strike
+Buff next card if is a maneuver: +2D
+---------------------
+Chair Shot
+Strike: Foreign Object: Heel
+---------------------
+Hurricanrana
+---------------------
+Hip Toss
+Grapple
+---------------------
+Arm Drag
+Grapple
+Discard 1 card from hand
+---------------------
+Russian Leg Sweep
+Grapple
+---------------------
+Snap Mare
+Grapple
+Buff next card if is a maneuver: +2D
+---------------------
+Gut Buster
+Grapple
+---------------------
+Body Slam
+Grapple
+---------------------
+Back Breaker
+Grapple
+---------------------
+Double Leg Takedown
+Grapple
+Draw 1 card
+---------------------
+Fireman's Carry
+Grapple
+Look opponents hand
+---------------------
+Headlock Takedown
+Grapple
+Opponent draw 1
+---------------------
+Atomic Facebuster
+Grapple
+---------------------
+Atomic Drop
+Grapple
+Buff next card if is a maneuver: +2D.
+---------------------
+Inverse Atomic Drop
+Grapple
+---------------------
+Pump Handle Slam
+Grapple
+Opponent discard 2
+---------------------
+Reverse DDT
+Grapple
+Choose: draw 1 or draw 0
+---------------------
+Samoan Drop
+Grapple
+Opponent discard 1
+---------------------
+Sit Out Powerbomb
+Grapple
+---------------------
+Bulldog
+Grapple
+Discard 1 from hand.
+Loock opponents hand.
+Discard 1 from opponent hand.
+---------------------
+Fisherman's Suplex
+Grapple
+Discard top deck.
+Choose: draw 1 or draw 0.
+---------------------
+DDT
+Grapple
+Discard top deck.
+Opponent discard 2
+---------------------
+Power Slam
+Grapple
+Opponent discard 1.
+---------------------
+Powerbomb
+Grapple
+Choose: draw 1 o draw 0.
+Buff this: +#slamD on your ring area. 
+---------------------
+Press Slam
+Grapple
+Discard top deck 1.
+Opponent discard 2.
+---------------------
+-------------------------------------------------------------------
+ MANEUVER: Submission
+-------------------------------------------------------------------
+---------------------
+Wrist Lock
+Submission
+---------------------
+Arm Bar
+Submission
+Discard 1 from hand.
+---------------------
+Chin Lock
+Submission
+---------------------
+Bear Hug
+Submission
+Opponent discard 1.
+---------------------
+Full Nelson
+Submission
+Search: specific card and put in your hand.
+Shuffle deck.
+---------------------
+Choke Hold
+Submission: Heel
+Opponent discard 1
+---------------------
+Step Over Toe Hold
+Submission
+---------------------
+Ankle Lock
+Submission
+Opponent discard 1.
+---------------------
+Standing Side Headlock
+Submission
+Opponent draw 1
+---------------------
+Cobra Clutch
+Submission
+Search: specific card and put in your hand.
+Shuffle deck.
+---------------------
+Bow & Arrow
+Submission
+---------------------
+Chicken Wing
+Submission
+Search 2 cards from discard pile, shuffle into your deck.
+---------------------
+Sleeper
+Submission
+Search: specific card and put in your hand.
+Shuffle deck.
+---------------------
+Camel Clutch
+Submission
+Search: specific card and put in your hand.
+Shuffle deck.
+---------------------
+Boston Crab
+Submission
+Opponent discard 1.
+---------------------
+Guillotine Stretch
+Submission
+Opponent discard 1.
+Choose: draw 1 or draw 0.
+---------------------
+Abdominal Stretch
+Submission
+Choose: draw 3 or draw 0.
+Search any card from your deck, pot into your hand.
+Shuffle deck.
+---------------------
+Torture Rack
+Submission
+Opponent discard 1.
+---------------------
+Figure Four Leg Lock
+Submission
+Opponent discard 1.
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE STONE COLD STEVE AUSTIN
+-------------------------------------------------------------------
+
+---------------------
+SPECIAL EFFECT.
+STONE COLD STEVE AUSTIN (logo & signature)
+(Superstar Card)
+Starting Hand Size: 7
+Star Value: 5
+Superstar Ability:
+Once during your turn, you may draw a card, but you must then take a card from your hand and place it on the bottom of your Arsenal.
+---------------------
+---------------------
+Austin Elbow Smash
+High Risk   (Maneuver)
+May not be reversed.
+Restriccion: combo-played after a maneuver that does 5D or more. * Include buff maneuvers
+Unique
+---------------------
+---------------------
+Stone Cold Stunner
+Trademark Finisher   (Maneuver Card)
+-6F on this card if played after the maneuver titled Kick.
+*******
+Restriccion decrease: 
+Buff this if played after Kick -6F.
+*******
+Unique
+---------------------
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE THE UNDERTAKER
+-------------------------------------------------------------------
+
+---------------------
+THE UNDERTAKER (logo & signature)
+(Superstar card)
+Starting Hand Size: 6
+Star Value: 4
+Superstar Ability:
+Choose: discard 0 or discard 2 and search card into your discard pile and put into your hand.
+---------------------
+---------------------
+Undertaker's Chokeslam
+Grapple   (Maneuver)
+Unique
+SV: 2	F: 15	D: 15
+---------------------
+---------------------
+Undertaker's Flying Clothesline
+High Risk   (Maneuver)
+Restriccion: combo-played after a maneuver that does 5D or more.
+Buff reversal to this, +6D
+Unique
+SV: 2	F: 10	D: 18
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE MANKIND
+-------------------------------------------------------------------
+
+---------------------
+MANKIND (logo & signature)
+(Superstar Card)
+Starting Hand Size: 2
+Star Value: 4
+Superstar Ability:
+You must always draw 2 cards, if possible, during your draw segment. All damage from opponent is at -1D.
+---------------------
+---------------------
+Tree of Woe
+Maneuver: Grapple
+May not be reversed.
+Opponent discard 2.
+Unique
+F: 18	D: 10
+---------------------
+---------------------
+Mandible Claw
+****
+Trademark Finisher   (Maneuver)
+-6F on this card if Mr. Socko card is in your Ring area.
+You may play the card titled Maintain Hold after this card as if it were a Submission maneuver.
+Unique
+SV: 3	F: 30	D: 20
+****
+---------------------
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE HHH
+-------------------------------------------------------------------
+
+---------------------
+HHH (logo & signature)
+(Superstar Card)
+Starting Hand Size: 10
+Star Value: 3
+Superstar Ability:
+None, isn't the starting hand size enough!
+He is "The Game" after all!
+---------------------
+---------------------
+Leaping Knee to the Face
+Strike   (Maneuver)
+May not be reversed.
+Restriccion: The card titled Irish Whip must be played before playing this card.
+Opponent discard 1.
+Unique
+F: 8	D: 10
+---------------------
+---------------------
+
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE THE ROCK
+-------------------------------------------------------------------
+
+---------------------
+THE ROCK (logo & signature)
+(Superstar Card)
+Starting Hand Size: 5
+Star Value: 5
+Superstar Ability:
+At the start of your turn, before your draw segment, you may take 1 card from your Ringside pile and place it on the bottom of your Arsenal.
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE KANE
+-------------------------------------------------------------------
+
+---------------------
+KANE (logo & signature)
+(Superstar Card)
+Starting Hand Size: 7
+Star Value: 2
+Superstar Ability:
+At the start of your turn, before your draw segment, opponent must take the top card from his Arsenal and place it into his Ringside pile.
+---------------------
+---------------------
+Kane's Chokeslam
+Grapple   (Maneuver)
+Unique
+SV: 2	F: 12	D: 12
+---------------------
+---------------------
+Kane's Flying Clothesline
+High Risk   (Maneuver)
+Restriccion: combo-played after a maneuver that does 4D or more.
+Buff reversals to this +6D
+Unique
+SV: 2	F: 8	D: 16
+---------------------
+---------------------
+Kane's Tombstone Piledriver
+Trademark Finisher   (Maneuver)
+Restriccion decrease: 
+Buff this if played after Kane's Choke Slam -6F.
+Unique
+SV: 3	F: 30	D: 25
+---------------------
+---------------------
+
+-------------------------------------------------------------------
+    CARTAS EXCLUSIVAS DE CHRIS JERICHO
+-------------------------------------------------------------------
+
+---------------------
+CHRIS JERICHO (logo & signature)
+(Superstar Card)
+Starting Hand Size: 7
+Star Value: 3
+Superstar Ability:
+Once during your turn, you may discard a card from your hand to force your opponent to discard a card from his hand.
+---------------------
+---------------------
+Lionsault
+High Risk (Maneuver)
+Restriccion: combo-played after a maneuver that does 4D or more.
+Opponent discard 1
+Unique
+SV: 2	F: 6	D: 12
+---------------------
+---------------------
+Walls of Jericho
+Trademark Finisher (Maneuver)
+****
+You may play the card titled Maintain Hold after this card as if it were a Submission maneuver.
+****
+Unique
+SV: 3	F: 30	D: 20
+---------------------
+---------------------
