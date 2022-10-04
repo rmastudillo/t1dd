@@ -12,9 +12,7 @@
         "StunValue": 0,
         "CardEffect": "",
         "CanBeReversed": true,
-        "EffectAsManeuver": [
-            {}
-        ]
+        "EffectAsManeuver": []
     },
     {
         "Title": "Head Butt",
@@ -51,9 +49,7 @@
         "StunValue": 0,
         "CardEffect": "",
         "CanBeReversed": true,
-        "EffectAsManeuver": [
-            {}
-        ]
+        "EffectAsManeuver": []
     },
     {
         "Title": "Haymaker",
@@ -75,7 +71,7 @@
                 "ApplyTo": "Strike",
                 "Stat": "Damage",
                 "Value": 1,
-                "HowLong": "thisturn"
+                "HowLong": "thisTurn"
             }
         ]
     },
@@ -99,22 +95,26 @@
             {
                 "Type": "choose",
                 "Options": [
-                    {
-                        "EffectAsManeuver": {
-                            "Target": "player",
-                            "Type": "draw",
-                            "From": "topdeck",
-                            "Value": 2
+                    [
+                        {
+                            "EffectAsManeuver": {
+                                "Target": "player",
+                                "Type": "draw",
+                                "From": "topdeck",
+                                "Value": 2
+                            }
                         }
-                    },
-                    {
-                        "EffectAsManeuver": {
-                            "Target": "opponent",
-                            "Type": "discard",
-                            "From": "hand",
-                            "Value": 2
+                    ],
+                    [
+                        {
+                            "EffectAsManeuver": {
+                                "Target": "opponent",
+                                "Type": "discard",
+                                "From": "hand",
+                                "Value": 2
+                            }
                         }
-                    }
+                    ]
                 ]
             }
         ]
@@ -132,9 +132,7 @@
         "StunValue": 0,
         "CardEffect": "",
         "CanBeReversed": true,
-        "EffectAsManeuver": [
-            {}
-        ]
+        "EffectAsManeuver": []
     },
     {
         "Title": "Kick",
@@ -1547,8 +1545,7 @@
             {
                 "Target": "player",
                 "Type": "buff",
-                "ApplyTo": "SpecificCard",
-                "CardName": "Maintain Hold",
+                "ApplyTo": "thisCard",
                 "Stat": "Subtypes",
                 "NewSubtype": "Submission",
                 "HowLong": "nextCard"
