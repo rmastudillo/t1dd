@@ -5,7 +5,7 @@
             "Maneuver"
         ],
         "Subtypes": [
-            "Strike"
+            "Strike"git config --global --add safe.directory 'D:/Cosas de la u/Semestre actual/Diseño detallado de software/t1dd'
         ],
         "Fortitude": 0,
         "Damage": 3,

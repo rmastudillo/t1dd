@@ -12,22 +12,10 @@
         "Fortitude": 0,
         "Damage": 3,
         "StunValue": 0,
-        "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip."
-    },
-    {
-        "Title": "Cross Body Block",
-        "Types": [
-            "Maneuver",
-            "Reversal"
-        ],
-        "Subtypes": [
-            "Strike",
-            "ReversalSpecial"
-        ],
-        "Fortitude": 0,
-        "Damage": 7,
-        "StunValue": 0,
-        "CardEffect": "The card titled Irish Whip must be played before playing this card. May only reverse a maneuver played after the card titled Irish Whip."
+        "CardEffect": "May only reverse a maneuver played after the card titled Irish Whip.",
+        "RestrictionToBePlayed": {
+            "CardPlayedBefore": "Irish Whip"
+        }
     },
     {
         "Title": "Ensugiri",
@@ -467,5 +455,23 @@
         "Damage": 0,
         "StunValue": 0,
         "CardEffect": "Reverse any Strike, Grapple or Submission maneuver. End your opponent's turn. If played from your hand, opponent must discard 2 cards and all your maneuvers next turn are +2D."
+    },
+    {
+        "Title": "Cross Body Block",
+        "Types": [
+            "Maneuver",
+            "Reversal"
+        ],
+        "Subtypes": [
+            "Strike",
+            "ReversalSpecial"
+        ],
+        "Fortitude": 0,
+        "Damage": 7,
+        "StunValue": 0,
+        "CardEffect": "The card titled Irish Whip must be played before playing this card. May only reverse a maneuver played after the card titled Irish Whip.",
+        "RestrictionToBePlayed": {
+            "CardPlayedBefore": "Irish Whip"
+        }
     }
 ]
