@@ -2,28 +2,26 @@
 using System.Text.Json;
 using System;
 using Luchalibre;
-
-const string folder = @"src";
+const string cardsFolder = @"src";
 const string imageName = "cards_all.json";
-var path = Path.Combine (folder,imageName) ;
-var filecard = new Filemanager();
-var cards = Filemanager.LoadCards(path);
-var cards_1 = (Card) cards["Back Body Drop"].Clone();
-
-
-cards_1.Damage = 12903;
-Console.WriteLine(cards["Back Body Drop"].ToString());
-Console.WriteLine(cards_1.ToString());
-
 const string deckFolder = @"decks";
-const string deckName = "07.txt";
-var deckPath = Path.Combine (deckFolder,deckName) ;
-var superstar = File.ReadAllLines(deckPath).First();
+var allCardsPath = Path.Combine (cardsFolder,imageName) ;
+
+
+ConsolePrint consolePrint = new ConsolePrint();
+CardGame RawDeal = new CardGame(consolePrint);
+
+
+var filecard = new Filemanager();
+var cards = Filemanager.LoadCards(allCardsPath);
+
+var deckPathp = consolePrint.ChooseDeck(deckFolder);
+var superstar = File.ReadAllLines(deckPathp).First();
 Console.WriteLine(superstar);
 var deck = new Deck(superstar);
-void LegitDeck(string path)
+void LegitDeck(string deckPath)
 {
-    var lines = File.ReadAllLines(path);
+    var lines = File.ReadAllLines(deckPath);
     foreach (var line in lines.Skip(1))
     {
         var lineCountName = line.Split(new[] { ' ' }, 2);
@@ -35,5 +33,5 @@ void LegitDeck(string path)
     }
 }
 Console.WriteLine(deck.ToString());
-LegitDeck(deckPath);
+LegitDeck(deckPathp);
 Console.WriteLine(deck.ToString());
