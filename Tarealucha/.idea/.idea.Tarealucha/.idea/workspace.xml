@@ -7,6 +7,7 @@
     <list default="true" id="22e4dbac-b376-4c6b-89a9-721a73465e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Filemanager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Filemanager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" afterDir="false" />
@@ -33,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664896090392</updated>
-      <workItem from="1664896093492" duration="14180000" />
+      <workItem from="1664896093492" duration="22476000" />
     </task>
     <servers />
   </component>

@@ -657,8 +657,8 @@
             },
             {
                 "Target": "player",
-                "Type": "mayDo",
-                "mayDo": [
+                "Type": "MayDo",
+                "MayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -732,8 +732,8 @@
         "EffectAsManeuver": [
             {
                 "Target": "player",
-                "Type": "mayDo",
-                "mayDo": [
+                "Type": "MayDo",
+                "MayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -1105,8 +1105,8 @@
             },
             {
                 "Target": "player",
-                "Type": "mayDo",
-                "mayDo": [
+                "Type": "MayDo",
+                "MayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -1132,8 +1132,8 @@
         "EffectAsManeuver": [
             {
                 "Target": "player",
-                "Type": "mayDo",
-                "mayDo": [
+                "Type": "MayDo",
+                "MayDo": [
                     {
                         "Target": "player",
                         "Type": "discard",
@@ -2059,8 +2059,8 @@
                 "Type": "choose",
                 "Options": [
                     {
-                        "Type": "mayDo",
-                        "mayDo": [
+                        "Type": "MayDo",
+                        "MayDo": [
                             {
                                 "Target": "player",
                                 "Type": "arrangetopdeck",
@@ -2097,8 +2097,8 @@
                 "Options": [
                     [
                         {
-                            "Type": "mayDo",
-                            "mayDo": [
+                            "Type": "MayDo",
+                            "MayDo": [
                                 {
                                     "Target": "opponent",
                                     "Type": "arrangetopdeck",

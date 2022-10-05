@@ -5,23 +5,23 @@ namespace Luchalibre;
 // Root myDeserializedClass = JsonConvert.DeserializeObject<List<Root>>(myJsonResponse);
 public class Effect
 {
-    public string Target { get; set; }
-    public string Type { get; set; }
-    public string From { get; set; }
+    public string? Target { get; set; }
+    public string? Type { get; set; }
+    public string? From { get; set; }
 }
     public class EffectAsAction:Effect
     {
 
         public int? Value { get; set; }
-        public List<object> Options { get; set; }
-        public string To { get; set; }
-        public string Condition { get; set; }
+        public List<object> ?Options { get; set; }
+        public string? To { get; set; }
+        public string? Condition { get; set; }
         public int? Max { get; set; }
-        public object Upto { get; set; }
-        public string ApplyTo { get; set; }
-        public string Stat { get; set; }
-        public string HowLong { get; set; }
-        public IfStatement IfStatement { get; set; }
+        public object? Upto { get; set; }
+        public string? ApplyTo { get; set; }
+        public string? Stat { get; set; }
+        public string? HowLong { get; set; }
+        public IfStatement? IfStatement { get; set; }
     }
 
     public class EffectAsDiscardByOpponent:Effect
@@ -31,34 +31,34 @@ public class Effect
 
     public class EffectAsManeuver:Effect
     {
-        public object Value { get; set; }
-        public string ApplyTo { get; set; }
-        public string Stat { get; set; }
-        public string HowLong { get; set; }
-        public List<List<Effect>> Options { get; set; }
-        public IfStatement IfStatement { get; set; }
-        public List<MayDo> mayDo { get; set; }
-        public string SpecialCondition { get; set; }
-        public string CardTitle { get; set; }
-        public string To { get; set; }
-        public string CardName { get; set; }
-        public string NewSubtype { get; set; }
+        public object? Value { get; set; }
+        public string? ApplyTo { get; set; }
+        public string ?Stat { get; set; }
+        public string? HowLong { get; set; }
+        public List<List<Effect>>? Options { get; set; }
+        public IfStatement? IfStatement { get; set; }
+        public List<MayDo>? MayDo { get; set; }
+        public string ?SpecialCondition { get; set; }
+        public string ?CardTitle { get; set; }
+        public string? To { get; set; }
+        public string ?CardName { get; set; }
+        public string ?NewSubtype { get; set; }
     }
 
     public class IfStatement
     {
-        public string CardTypeBefore { get; set; }
-        public int MinDamageRequired { get; set; }
-        public string CardTypeAfter { get; set; }
-        public int MaxDamageRequired { get; set; }
+        public string ?CardTypeBefore { get; set; }
+        public int? MinDamageRequired { get; set; }
+        public string ?CardTypeAfter { get; set; }
+        public int? MaxDamageRequired { get; set; }
     }
 
     public class LoosRestriction
     {
-        public string CardPlayedBefore { get; set; }
-        public string Restriction { get; set; }
-        public int Value { get; set; }
-        public string CardOnRingArea { get; set; }
+        public string? CardPlayedBefore { get; set; }
+        public string ?Restriction { get; set; }
+        public int? Value { get; set; }
+        public string ?CardOnRingArea { get; set; }
         public bool? PlayedAsAnAction { get; set; }
     }
 
@@ -70,10 +70,10 @@ public class Effect
 
     public class RestrictionToBePlayed
     {
-        public string CardPlayedBefore { get; set; }
-        public string CardTypeBefore { get; set; }
+        public string? CardPlayedBefore { get; set; }
+        public string? CardTypeBefore { get; set; }
         public int? MinDamageRequired { get; set; }
-        public string OpponentFortitude { get; set; }
+        public string? OpponentFortitude { get; set; }
     }
 
     public class Card:ICloneable
