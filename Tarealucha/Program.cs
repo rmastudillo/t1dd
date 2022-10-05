@@ -6,20 +6,24 @@ const string cardsFolder = @"src";
 const string imageName = "cards_all.json";
 const string deckFolder = @"decks";
 var allCardsPath = Path.Combine (cardsFolder,imageName) ;
+List<Deck> GameStart(ConsolePrint consoleP, string cardsPath,string decksFolder)
+{
+    var playersDecks = new List<Deck>();
+    consoleP.WelcommingMessage();
+    var cards = Filemanager.LoadCards(cardsPath);
+    for (var i = 0; i <= 1; i++)
+    {
+        var deckPathp = consoleP.ChooseDeck(decksFolder);
+        var superstar = File.ReadAllLines(deckPathp).First();
+        var deck = new Deck(superstar);
+        BuildDeck(deckPathp,cards,deck);
+        playersDecks.Add(deck);
+    }
+    
+    return playersDecks;
+}
 
-
-ConsolePrint consolePrint = new ConsolePrint();
-CardGame RawDeal = new CardGame(consolePrint);
-
-
-var filecard = new Filemanager();
-var cards = Filemanager.LoadCards(allCardsPath);
-
-var deckPathp = consolePrint.ChooseDeck(deckFolder);
-var superstar = File.ReadAllLines(deckPathp).First();
-Console.WriteLine(superstar);
-var deck = new Deck(superstar);
-void LegitDeck(string deckPath)
+void BuildDeck(string deckPath, IReadOnlyDictionary<string, Card> cards,Deck deck)
 {
     var lines = File.ReadAllLines(deckPath);
     foreach (var line in lines.Skip(1))
@@ -32,6 +36,25 @@ void LegitDeck(string deckPath)
         foreach (var newCard in cardsToAdd) deck.AddCard(newCardToAdd) ;
     }
 }
-Console.WriteLine(deck.ToString());
-LegitDeck(deckPathp);
-Console.WriteLine(deck.ToString());
+
+bool CheckIfGameIsValid(List<Deck> decks)
+{
+    var gameIsValid = true;
+    for (var i = 0; i <= 1; i++)
+    {
+        Console.WriteLine($"El Deck del jugador {i+1} {decks[i].Superstar} NO es válido");
+        gameIsValid = false;
+    }
+    if (!gameIsValid) Console.WriteLine("El juego terminará en este momento");
+    return gameIsValid;
+}
+
+
+
+
+var filecard = new Filemanager();
+ConsolePrint consolePrint = new ConsolePrint();
+CardGame RawDeal = new CardGame(consolePrint);
+var game = GameStart(consolePrint, allCardsPath, deckFolder);
+CheckIfGameIsValid(game);
+
