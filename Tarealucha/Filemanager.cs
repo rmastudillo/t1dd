@@ -3,9 +3,12 @@ using static System.Text.Json.JsonSerializer;
 
 public class Filemanager
 {
-    public static List<Card>LoadCards(string jsonString)
+    public static Dictionary<string,Card>LoadCards(string jsonString)
     {
+        var cardsDict = new Dictionary<string, Card>();
         var cards = Deserialize<List<Card>>(jsonString);
-        return cards ?? throw new ArgumentNullException(nameof(jsonString));
+        if (cards == null) return cardsDict ?? throw new ArgumentNullException(nameof(jsonString));
+        cards.ForEach(card => cardsDict[card.Title] = card);
+        return cardsDict ?? throw new ArgumentNullException(nameof(jsonString));
     }
 }

@@ -658,7 +658,7 @@
             {
                 "Target": "player",
                 "Type": "mayDo",
-                "EffectAsManeuver": [
+                "mayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -733,7 +733,7 @@
             {
                 "Target": "player",
                 "Type": "mayDo",
-                "EffectAsManeuver": [
+                "mayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -1106,7 +1106,7 @@
             {
                 "Target": "player",
                 "Type": "mayDo",
-                "EffectAsManeuver": [
+                "mayDo": [
                     {
                         "Target": "player",
                         "Type": "draw",
@@ -1133,7 +1133,7 @@
             {
                 "Target": "player",
                 "Type": "mayDo",
-                "EffectAsManeuver": [
+                "mayDo": [
                     {
                         "Target": "player",
                         "Type": "discard",
@@ -2060,7 +2060,7 @@
                 "Options": [
                     {
                         "Type": "mayDo",
-                        "EffectAsAction": [
+                        "mayDo": [
                             {
                                 "Target": "player",
                                 "Type": "arrangetopdeck",
@@ -2069,10 +2069,8 @@
                         ]
                     },
                     {
-                        "EffectAsAction": {
-                            "Type": "shuffledeck",
-                            "Target": "player"
-                        }
+                        "Type": "shuffledeck",
+                        "Target": "player"
                     }
                 ]
             }
@@ -2100,7 +2098,7 @@
                     [
                         {
                             "Type": "mayDo",
-                            "EffectAsAction": [
+                            "mayDo": [
                                 {
                                     "Target": "opponent",
                                     "Type": "arrangetopdeck",

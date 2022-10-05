@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Luchalibre;
+using System;
 
 // See https://aka.ms/new-console-template for more information
 
@@ -10,5 +11,8 @@ string path = Path.Combine (folder,imageName) ;
 Console.WriteLine("Hello, World!");
 string jsonString = File.ReadAllText(path);
 Filemanager filecard = new Filemanager();
-List<Card> ?cards = Filemanager.LoadCards(jsonString);
-Console.WriteLine(cards[4].EffectAsManeuver[0].Options[0][0].Type);
+Dictionary<string, Card> cards = Filemanager.LoadCards(jsonString);
+Card cards_1 = (Card) cards["Back Body Drop"].Clone();
+cards_1.Damage = 12903;
+Console.WriteLine(cards["Back Body Drop"].ToString());
+Console.WriteLine(cards_1.ToString());
