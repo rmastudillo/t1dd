@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Card.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Filemanager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Filemanager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664896090392</updated>
-      <workItem from="1664896093492" duration="22476000" />
+      <workItem from="1664896093492" duration="27642000" />
     </task>
     <servers />
   </component>

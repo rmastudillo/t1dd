@@ -2,7 +2,6 @@ using static System.Text.Json.JsonSerializer;
 
 namespace Luchalibre;
 
-// Root myDeserializedClass = JsonConvert.DeserializeObject<List<Root>>(myJsonResponse);
 public class Effect
 {
     public string? Target { get; set; }

@@ -16,9 +16,11 @@ Console.WriteLine(cards["Back Body Drop"].ToString());
 Console.WriteLine(cards_1.ToString());
 
 const string deckFolder = @"decks";
-const string deckName = "02.txt";
+const string deckName = "07.txt";
 var deckPath = Path.Combine (deckFolder,deckName) ;
-var deck = new Deck();
+var superstar = File.ReadAllLines(deckPath).First();
+Console.WriteLine(superstar);
+var deck = new Deck(superstar);
 void LegitDeck(string path)
 {
     var lines = File.ReadAllLines(path);
