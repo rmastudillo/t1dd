@@ -42,6 +42,7 @@ bool CheckIfGameIsValid(List<Deck> decks)
     var gameIsValid = true;
     for (var i = 0; i <= 1; i++)
     {
+        if (decks[i].IsValid) continue;
         Console.WriteLine($"El Deck del jugador {i+1} {decks[i].Superstar} NO es válido");
         gameIsValid = false;
     }
@@ -53,8 +54,11 @@ bool CheckIfGameIsValid(List<Deck> decks)
 
 
 var filecard = new Filemanager();
-ConsolePrint consolePrint = new ConsolePrint();
-CardGame RawDeal = new CardGame(consolePrint);
+var consolePrint = new ConsolePrint();
 var game = GameStart(consolePrint, allCardsPath, deckFolder);
-CheckIfGameIsValid(game);
+if (CheckIfGameIsValid(game))
+{
+    var rawDeal = new CardGame(consolePrint,game);
+    rawDeal.StartGame();
+}
 

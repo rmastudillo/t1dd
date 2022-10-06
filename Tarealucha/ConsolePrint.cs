@@ -60,4 +60,15 @@ public class ConsolePrint
         }
         return CheckDeckInput(optionCounter, files);
     }
+
+    public void NewGame(string playerOneSuperStar, string playerTwoSuperstar)
+    {
+        var newGameMessage = new List<string>(new string[]
+        {
+            "########################################\n",
+            "Se enfrentan:\n",
+            $"(Player 1) {playerOneSuperStar} vs (Player 2) {playerTwoSuperstar}\n",
+            "########################################\n"});
+        Console.WriteLine(string.Join("",newGameMessage));
+    }
 }
