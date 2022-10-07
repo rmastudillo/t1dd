@@ -3,13 +3,14 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 namespace Luchalibre;
 
-public class CardGame
+public partial class CardGame
 {
   public Player PlayerOne { get; set;}
   public Player  PlayerTwo { get; set;} 
   public ConsolePrint ConsolePrint { get; set;}
   public Player CurrentPlayer { get; set;}
   public Player Opponent { get; set;}
+  private bool CurrenlyPlaying { get; set; } = true;
 
   public CardGame(ConsolePrint consolePrint, List<Deck> playersDecks)
   {
@@ -50,24 +51,50 @@ public class CardGame
   }
   public void StartGame()
   {
-    ConsolePrint.NewGame(PlayerOne.Name,PlayerTwo.Name);
+    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
     CalculateWhoPlaysFirst();
     DrawCards(CurrentPlayer, CurrentPlayer.Deck.Superstar.HandSize,"Deck","Hand");
     DrawCards(Opponent, Opponent.Deck.Superstar.HandSize,"Deck","Hand");
   }
-
-  private void DrawCards(Player player, int numberOfCards, string from, string to)
+  
+  public void PreDrawPhase()
   {
-     List<Card>? fromList = null;
-     List<Card>? toList = null; 
-     if (from == "Deck") fromList = player.Deck.Cards;
-     if (to == "Hand") toList = player.Hand;
-     if (fromList == null | toList == null) return;
-     for (var i = 0; i <= numberOfCards; i++)
-     {
-       toList?.Add(fromList?.Last() ?? throw new InvalidOperationException(
-         "No se ha seteado correctamente Draw card"));
-       fromList?.RemoveAt(fromList.Count-1);
-     }
+    Console.WriteLine("PredrawPhase");
+  }
+  public void DrawPhase()
+  {
+    Console.WriteLine("DrawPhase");
+    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
+    DrawCards(CurrentPlayer,1,"Deck","Hand");
+    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
+  }
+  public void MainTurn()
+  {
+    var currentPlayerOption = ConsolePrint.SelectMainPhaseOptions(CurrentPlayer);
+    Console.WriteLine($"El jugador escogió la opcion{currentPlayerOption}");
+    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
+  }
+
+  public void DamagePhase()
+  {
+    Console.WriteLine("DamagePhase");
+  }
+  public void EndTurnPhase()
+  {
+    Console.WriteLine("EndTurnPhase");
+  }
+
+  public void Playing()
+  {
+    StartGame();
+    while (CurrenlyPlaying)
+    {
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      DamagePhase();
+      EndTurnPhase();
+      CurrenlyPlaying = false;
+    }
   }
 }

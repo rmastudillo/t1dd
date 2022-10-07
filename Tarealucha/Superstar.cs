@@ -14,6 +14,4 @@ public  class Superstar
         SuperstarValue = superstarValue;
         SuperstarHability = superstarHability;
     }
-    
-    
 }

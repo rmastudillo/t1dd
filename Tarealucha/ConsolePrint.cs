@@ -61,14 +61,76 @@ public class ConsolePrint
         return CheckDeckInput(optionCounter, files);
     }
 
-    public void NewGame(string playerOneSuperStar, string playerTwoSuperstar)
+    public void NewTurnInfo(Player playerOne, Player playerTwo)
     {
         var newGameMessage = new List<string>(new string[]
         {
-            "########################################\n",
+            "----------------------------------------\n",
             "Se enfrentan:\n",
-            $"(Player 1) {playerOneSuperStar} vs (Player 2) {playerTwoSuperstar}\n",
-            "########################################\n"});
+            $"(Player 1) {playerOne.Deck.Superstar.Name} vs (Player 2) {playerTwo.Deck.Superstar.Name}"});
         Console.WriteLine(string.Join("",newGameMessage));
+        var players = new List<Player> { playerOne, playerTwo };
+        foreach (var player in players)
+        {
+            var playerSuperStar = player.Deck.Superstar.Name;
+            var playerCurrentFortitude = player.CurrentFortitude;
+            var playerHandSize = player.Hand.Count;
+            var playerDeckSize = player.Deck.Cards.Count;
+            Console.WriteLine($"{player.Name}: {playerSuperStar} tiene {playerCurrentFortitude}F, " +
+                              $"{playerHandSize} cartas en su mano y le quedan {playerDeckSize} cartas en su arsenal.");
+        }
+        Console.WriteLine("----------------------------------------");
+    }
+    public void MainTurn(Player playerOne, Player playerTwo)
+    {
+        NewTurnInfo(playerOne,playerTwo);
+  
+    }
+    public void PredrawMsg(Player playerOne, Player  playerTwo)
+    {
+        Console.WriteLine("PreDraw;s");
+    }
+
+    public int SelectMainPhaseOptions(Player currentPlayer)
+    {
+        var mainPhaseOptions = new List<string>(new string[]
+        {
+            $"Es el turno de {currentPlayer.Name}: {currentPlayer.Deck.Superstar.Name}\n",
+            "¿Qué quieres hacer?:\n",
+            "        [0] Usar mi super habilidad \n",
+            "        [1] Ver mis cartas o las de mi oponente\n",
+            "        [2] Jugar una carta de mi mano\n",
+            "        [3] Terminar mi turno"});
+        Console.WriteLine(string.Join("",mainPhaseOptions));
+        var mainPhaseNumberofOptions = 4;
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {mainPhaseNumberofOptions - 1}: ";
+        var playerOption = CheckInput(mainPhaseNumberofOptions, mainPhaseInputMessage);
+        return playerOption;
+    }
+    private int CheckInput(int numberOfOptions,string inputMessage)
+    {
+        int? output = null;
+        while (output==null)
+        {
+            
+            try
+            {
+                Console.Write(inputMessage);
+                var userInputNumber = Convert.ToInt32(Console.ReadLine());
+                if (Enumerable.Range(0, numberOfOptions).Contains(userInputNumber))
+                {
+                    output = userInputNumber;
+                }
+                else
+                {
+                    Console.WriteLine("La opción escrita no es válida!");
+                }
+            }
+            catch
+            {
+                Console.WriteLine($"ERROR: Tiene que ser un número entre 0 y {numberOfOptions - 1}");
+            }
+        }
+        return (int)output;
     }
 }

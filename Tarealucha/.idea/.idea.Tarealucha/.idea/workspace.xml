@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/ConsolePrint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsolePrint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Superstar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Superstar.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,7 +66,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664896090392</updated>
-      <workItem from="1664896093492" duration="44316000" />
+      <workItem from="1664896093492" duration="47438000" />
+      <workItem from="1665108809694" duration="241000" />
+      <workItem from="1665109078502" duration="393000" />
+      <workItem from="1665109501449" duration="9415000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Mail;
 
 namespace Luchalibre;
@@ -67,7 +68,7 @@ public class Deck
         var newCard = (Card)card.Clone();
         if (!CardCount.ContainsKey(card.Title)) CardCount[newCard.Title] = 0;
         CheckValidCard(newCard);
-        Cards.Add(newCard);
+        Cards?.Add(newCard);
         CardCount[newCard.Title] ++;
         DeckSize++;
         if (newCard.Subtypes.Contains("Heel")) TypeOfDeck = "Heel";
@@ -88,7 +89,6 @@ public class Deck
         if (card.Subtypes.Contains("TheRock") & Superstar.Name!="THE ROCK") IsValid = false ;
         if (card.Subtypes.Contains("Kane") & Superstar.Name!="KANE") IsValid = false ;
         if (card.Subtypes.Contains("Jericho") & Superstar.Name!="CHRIS JERICHO") IsValid = false ;
-
     }
 
     public override string ToString()

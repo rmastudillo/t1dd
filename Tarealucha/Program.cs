@@ -1,11 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Text.Json;
-using System;
 using Luchalibre;
 const string cardsFolder = @"src";
 const string imageName = "cards_all.json";
 const string deckFolder = @"decks";
 var allCardsPath = Path.Combine (cardsFolder,imageName) ;
+
+
 List<Deck> GameStart(ConsolePrint consoleP, string cardsPath,string decksFolder)
 {
     var playersDecks = new List<Deck>();
@@ -30,10 +30,10 @@ void BuildDeck(string deckPath, IReadOnlyDictionary<string, Card> cards,Deck dec
     {
         var lineCountName = line.Split(new[] { ' ' }, 2);
         var newCardName = lineCountName[1];
-        var newCardToAdd = cards[newCardName];
+        var newCardToAdd = (Card) cards[newCardName].Clone();
         var numberOfCardsToAdd = Convert.ToInt32(lineCountName[0]);
         var cardsToAdd = Enumerable.Repeat(newCardName, numberOfCardsToAdd);
-        foreach (var newCard in cardsToAdd) deck.AddCard(newCardToAdd) ;
+        for (var i = 0; i < numberOfCardsToAdd; i++) deck.AddCard(newCardToAdd);
     }
 }
 
@@ -59,6 +59,6 @@ var game = GameStart(consolePrint, allCardsPath, deckFolder);
 if (CheckIfGameIsValid(game))
 {
     var rawDeal = new CardGame(consolePrint,game);
-    rawDeal.StartGame();
+    rawDeal.Playing();
 }
 
