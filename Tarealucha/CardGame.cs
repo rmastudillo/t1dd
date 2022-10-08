@@ -1,6 +1,8 @@
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+
 namespace Luchalibre;
 
 public partial class CardGame
@@ -105,6 +107,66 @@ public partial class CardGame
       }
     }
   }
+
+  public bool FilterValidTypeToBePlayed(Card card, List<string> validTypes)
+  {
+    IEnumerable<string> res = validTypes.AsQueryable().Intersect(card.Types);
+    return res.Any();
+  }
+  public bool FilterEnoughFortitudeToBePlayed(Card card, Player player)
+  {
+    /*Pendiente, modificadores de fortitude para jugar cartas*/
+    return card.Fortitude <= player.CurrentFortitude;
+  }
+  public bool OtherRestrictions(Card card, Player player)
+  {
+    /*Pendiente, revisar alguna otra restriccion como por ejemplo que se tenga que jugar antes que otra cosa*/
+    return true;
+  }
+  public List<Card> GetPlayableCardsFromHand()
+  {
+    var listOfPlayableCards = new List<Card>();
+    var listOfTypesThatCanBePlayed= new List<string>{ "Maneuver","Action" } ;
+    foreach (var card in CurrentPlayer.Hand)
+    {
+      var enoughFortitude = FilterEnoughFortitudeToBePlayed(card, CurrentPlayer);
+      var validSubtype = FilterValidTypeToBePlayed(card, listOfTypesThatCanBePlayed);
+      var otherRestrictions = OtherRestrictions(card, CurrentPlayer);
+      if(enoughFortitude& validSubtype&otherRestrictions) listOfPlayableCards.Add(card);
+    }
+    return listOfPlayableCards;
+  }
+  public List<string> ReturnValidTypeToBePlayed(Player player, Card card, List<string> validTypes)
+  {
+    var returnValidTypes = new List<string>();
+    foreach (var type in validTypes)
+    {
+      if (card.Types.Contains(type))
+      {
+        returnValidTypes.Add(type);
+        /*Pendiente, tengo que elegir el tipo*/
+      }
+    }
+
+    return returnValidTypes;
+  }
+  public void PlayingCardsFromHand()
+  {
+    var validCards = GetPlayableCardsFromHand();
+    ConsolePrint.ShowListOfCards(validCards);
+    var inputCardSelected = ConsolePrint.SelectCardToBePlayed(validCards);
+    if (inputCardSelected != -1)
+    {
+      var cardSelected = validCards[inputCardSelected];
+      Console.WriteLine($"El jugador quiere jugar la carta {cardSelected}");
+      var types = new List<string>{"Maneuver","Action"} ;
+      var validType = ReturnValidTypeToBePlayed(CurrentPlayer,cardSelected,types);
+      var typeSelected = ConsolePrint.SelectType(cardSelected, validType);
+      Console.WriteLine($"El jugador escogió el tipo {typeSelected}");
+
+
+    }
+  }
   public void MainTurn()
   {
     var playingOnMainTurn = true;
@@ -120,6 +182,7 @@ public partial class CardGame
           MenuLookCardsOptions();
           break;
         case 2:
+          PlayingCardsFromHand();
           break;
         case 3:
           playingOnMainTurn = false;

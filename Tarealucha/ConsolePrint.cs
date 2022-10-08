@@ -116,7 +116,17 @@ public class ConsolePrint
             mainPhaseInputMessage);
         return playerOption;
     }
-    private int CheckInput(int numberOfOptions,string inputMessage)
+
+    public int SelectCardToBePlayed(List<Card> cards)
+    {
+        var cardsNumberofOptions = cards.Count + 1;
+        const int lowerOption = -1;
+        Console.WriteLine("Ingresa el ID de la carta que quieres jugar. Puedes ingresar -1 para volver al menu");
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {cardsNumberofOptions - 2}): ";
+        var playerOption =  CheckInput(cardsNumberofOptions, mainPhaseInputMessage, lowerOption);
+        return playerOption;
+    }
+    private int CheckInput(int numberOfOptions,string inputMessage,int lowerNumberOfOptions=0)
     {
         int? output = null;
         while (output==null)
@@ -126,7 +136,7 @@ public class ConsolePrint
             {
                 Console.Write(inputMessage);
                 var userInputNumber = Convert.ToInt32(Console.ReadLine());
-                if (Enumerable.Range(0, numberOfOptions).Contains(userInputNumber))
+                if (Enumerable.Range(lowerNumberOfOptions, numberOfOptions).Contains(userInputNumber))
                 {
                     output = userInputNumber;
                 }
@@ -169,7 +179,7 @@ public class ConsolePrint
         var cardInfo = new List<string>(new[]
         {
             $"Title:  {card.Title}\n",
-            $"Stats:  [{card.Fortitude}F/{card.Damage}D/{card.StunValue}SV\n",
+            $"Stats:  [{card.Fortitude}F/{card.Damage}D/{card.StunValue}SV]\n",
             $"Types:  {string.Join("/", card.Types)}\n",
             $"Subtypes:  {string.Join("/", card.Subtypes)}\n",
             $"Effect:  {card.CardEffect}"
@@ -195,5 +205,23 @@ public class ConsolePrint
         });
         Console.WriteLine(string.Join("",cardInfoFooter));
         
+    }
+
+    public string SelectType(Card card, List<string> availableTypes)
+    {
+        Console.WriteLine($"Selecciona el tipo en el que quieres jugar la carta {card.Title} \n" +
+                          $"Puedes ingresar -1 para volver al menu");
+        int numberofOptions = availableTypes.Count;
+        const int lowerOption = -1;
+        var cardsNumberofOptions = availableTypes.Count + 1;
+        var optionCounter = 0;
+        foreach (var type in availableTypes)
+        {
+            Console.WriteLine($"[{optionCounter}] {type}");
+            optionCounter++;
+        }
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {cardsNumberofOptions - 2}): ";
+        var playerOption =  CheckInput(cardsNumberofOptions, mainPhaseInputMessage, lowerOption);
+        return playerOption == -1 ? "Back" : availableTypes[playerOption];
     }
 }
