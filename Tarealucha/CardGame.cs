@@ -83,10 +83,24 @@ public partial class CardGame
           looking = false;
           break;
         case 1:
+          ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
+          if (CurrentPlayer.Hand.Count == 0)Console.WriteLine("No te quedan cartas en la mano!\n");
           break;
         case 2:
+          ConsolePrint.ShowListOfCards(CurrentPlayer.RingSide);
+          if (CurrentPlayer.RingSide.Count == 0)Console.WriteLine("No hay cartas en tu ringside!\n");
           break;
         case 3:
+          ConsolePrint.ShowListOfCards(CurrentPlayer.RingArea);
+          if (CurrentPlayer.RingArea.Count == 0)Console.WriteLine("No hay cartas en tu ring area!\n");
+          break;
+        case 4:
+          ConsolePrint.ShowListOfCards(Opponent.RingSide);
+          if (Opponent.RingSide.Count == 0)Console.WriteLine("No hay cartas en el ringside de tu oponente!\n");
+          break;
+        case 5:
+          ConsolePrint.ShowListOfCards(Opponent.RingArea);
+          if (Opponent.RingArea.Count == 0)Console.WriteLine("No hay cartas en el ring area de tu oponente!\n");
           break;
       }
     }

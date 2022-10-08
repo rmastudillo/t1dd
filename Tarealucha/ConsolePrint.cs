@@ -152,14 +152,48 @@ public class ConsolePrint
             "        [0] Volver \n",
             "        [1] Mi mano\n",
             "        [2] Mi ringside\n",
-            "        [3] El ringside de mi oponente\n",
-            "        [4] El ring area de mi oponente" });
-        const int numberofOptions = 5;
+            "        [3] Mi ring area\n",
+            "        [4] El ringside de mi oponente\n",
+            "        [5] El ring area de mi oponente" });
+        const int numberofOptions = 6;
         var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {numberofOptions - 1}: ";
         var playerOption = MenuOptions(
             numberofOptions,
             mainPhaseOptions,
             mainPhaseInputMessage);
         return playerOption;
+    }
+
+    public void ShowPlayerCard(Card card)
+    {
+        var cardInfo = new List<string>(new[]
+        {
+            $"Title:  {card.Title}\n",
+            $"Stats:  [{card.Fortitude}F/{card.Damage}D/{card.StunValue}SV\n",
+            $"Types:  {string.Join("/", card.Types)}\n",
+            $"Subtypes:  {string.Join("/", card.Subtypes)}\n",
+            $"Effect:  {card.CardEffect}"
+        });
+        Console.WriteLine(string.Join("",cardInfo));
+    }
+
+    public void ShowListOfCards(List<Card> listOfCards)
+    {
+        for (var cardNumber = 0; cardNumber < listOfCards.Count; cardNumber++)
+        {
+            var currentCard = listOfCards[cardNumber];
+            var cardInfoHeader = new List<string>(new[]
+            {
+                $"--------------- Card #{cardNumber}"
+            });
+            Console.WriteLine(string.Join("",cardInfoHeader));
+            ShowPlayerCard(currentCard);
+        }
+        var cardInfoFooter = new List<string>(new[]
+        {
+            $"----------------------------------------\n"
+        });
+        Console.WriteLine(string.Join("",cardInfoFooter));
+        
     }
 }
