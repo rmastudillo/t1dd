@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="22e4dbac-b376-4c6b-89a9-721a73465e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tarealucha/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Card.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CardGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CardGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsolePrint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsolePrint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Superstar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Superstar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/src/cards_all.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
       <workItem from="1664896093492" duration="47438000" />
       <workItem from="1665108809694" duration="241000" />
       <workItem from="1665109078502" duration="393000" />
-      <workItem from="1665109501449" duration="29661000" />
+      <workItem from="1665109501449" duration="44475000" />
     </task>
     <servers />
   </component>

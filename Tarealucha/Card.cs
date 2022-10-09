@@ -81,12 +81,12 @@ public class Effect
         public List<string> Types { get; set; }
         public List<string> Subtypes { get; set; }
         public int Fortitude { get; set; }
-        public object Damage { get; set; }
+        public int Damage { get; set; }
         public int StunValue { get; set; }
         public string CardEffect { get; set; }
         public List<EffectAsManeuver>?EffectAsManeuver { get; set; }
         public RestrictionToBePlayed? RestrictionToBePlayed { get; set; }
-        public bool? CanBeReversed { get; set; } = true;
+        public bool CanBeReversed { get; set; } = true;
         public LoosRestriction? LoosRestriction { get; set; }
         public List<EffectAsAction>? EffectAsAction { get; set; }
         public List<EffectAsDiscardByOpponent>? EffectAsDiscardByOpponent { get; set; }

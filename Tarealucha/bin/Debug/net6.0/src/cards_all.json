@@ -1639,7 +1639,7 @@
             "ReversalGrappleSpecial"
         ],
         "Fortitude": 1,
-        "Damage": "#",
+        "Damage": 0,
         "StunValue": 0,
         "CardEffect": "Can only reverse a Grapple that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area."
     },
@@ -1652,7 +1652,7 @@
             "ReversalStrikeSpecial"
         ],
         "Fortitude": 1,
-        "Damage": "#",
+        "Damage": 0,
         "StunValue": 0,
         "CardEffect": "Can only reverse a Strike that does 7D or less. End your opponent's turn. # = D of maneuver card being reversed. Read as 0 when in your Ring area."
     },

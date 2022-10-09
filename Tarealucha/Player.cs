@@ -8,6 +8,7 @@ public class Player
     public List<Card> RingArea { get; set;} = new List<Card>();
     public List<Card> RingSide { get; set;} = new List<Card>();
     public int CurrentFortitude { get; set; } = 0;
+    public bool SuperStarHabilityAvailable = true;
 
     public Player(Deck deck, string name)
     {

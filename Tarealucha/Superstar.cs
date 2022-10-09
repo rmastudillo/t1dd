@@ -10,6 +10,10 @@ public  class Superstar
     public Superstar(int handSize, int superstarValue, string superstarHability,string name)
     {
         Name = name;
+        if (Name == "KANE")
+        {
+            Console.WriteLine("AQSDJASIKDKASÑDJASÑLDJASÑL");
+        }
         HandSize = handSize;
         SuperstarValue = superstarValue;
         SuperstarHability = superstarHability;

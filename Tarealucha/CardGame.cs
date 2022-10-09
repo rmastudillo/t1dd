@@ -1,7 +1,9 @@
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
 
 namespace Luchalibre;
 
@@ -24,18 +26,13 @@ public partial class CardGame
     Opponent = PlayerTwo;
   }
 
-  void ChangeCurrentPlayer()
+  public void StartGame()
   {
-    if (CurrentPlayer.Name == "PlayerOne")
-    {
-      CurrentPlayer = PlayerTwo;
-      Opponent = PlayerOne;
-    }
-    else
-    {
-      CurrentPlayer = PlayerOne;
-      Opponent = PlayerOne;
-    }
+    LoadEffects();
+    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
+    CalculateWhoPlaysFirst();
+    DrawCards(CurrentPlayer, CurrentPlayer.Deck.Superstar.HandSize,"Deck","Hand");
+    DrawCards(Opponent, Opponent.Deck.Superstar.HandSize,"Deck","Hand");
   }
   private void CalculateWhoPlaysFirst()
   {
@@ -52,29 +49,39 @@ public partial class CardGame
       ChangeCurrentPlayer();
     }
   }
-  public void StartGame()
+  void ChangeCurrentPlayer()
   {
-    LoadEffects();
-    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
-    CalculateWhoPlaysFirst();
-    DrawCards(CurrentPlayer, CurrentPlayer.Deck.Superstar.HandSize,"Deck","Hand");
-    DrawCards(Opponent, Opponent.Deck.Superstar.HandSize,"Deck","Hand");
+    if (CurrentPlayer.Name == "PlayerOne")
+    {
+      CurrentPlayer = PlayerTwo;
+      Opponent = PlayerOne;
+    }
+    else
+    {
+      CurrentPlayer = PlayerOne;
+      Opponent = PlayerTwo;
+    }
   }
   
   public void PreDrawPhase()
   {
+    if (CurrentPlayer.Deck.Superstar.Name == "KANE")
+    {
+      Console.WriteLine("\n# Se activa la habilidad de KANE y el oponente descarta 1 carta desde el arsenal\n");
+      if (Opponent.Deck.Cards != null)
+        MoveACardFromTo(Opponent.Deck.Cards, Opponent.Deck.Cards.Count - 1, Opponent.RingSide);
+    }
     Console.WriteLine("PredrawPhase");
   }
   public void DrawPhase()
   {
     Console.WriteLine("DrawPhase");
-    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
     DrawCards(CurrentPlayer,1,"Deck","Hand");
-    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
   }
 
   public void MenuLookCardsOptions()
   {
+    /*Ta bien*/
     var looking = true;
     while (looking)
     { 
@@ -123,16 +130,16 @@ public partial class CardGame
     /*Pendiente, revisar alguna otra restriccion como por ejemplo que se tenga que jugar antes que otra cosa*/
     return true;
   }
-  public List<Card> GetPlayableCardsFromHand()
+  public List<int> GetPlayableCardsFromHand(Player playerAptentingtoPlay,List<string> cardvalidType)
   {
-    var listOfPlayableCards = new List<Card>();
-    var listOfTypesThatCanBePlayed= new List<string>{ "Maneuver","Action" } ;
-    foreach (var card in CurrentPlayer.Hand)
+    var listOfPlayableCards = new List<int>();
+    for(var cardPosition = 0; cardPosition < playerAptentingtoPlay.Hand.Count;cardPosition++)
     {
-      var enoughFortitude = FilterEnoughFortitudeToBePlayed(card, CurrentPlayer);
-      var validSubtype = FilterValidTypeToBePlayed(card, listOfTypesThatCanBePlayed);
-      var otherRestrictions = OtherRestrictions(card, CurrentPlayer);
-      if(enoughFortitude& validSubtype&otherRestrictions) listOfPlayableCards.Add(card);
+      var card = playerAptentingtoPlay.Hand[cardPosition];
+      var enoughFortitude = FilterEnoughFortitudeToBePlayed(card, playerAptentingtoPlay);
+      var validSubtype = FilterValidTypeToBePlayed(card, cardvalidType);
+      var otherRestrictions = OtherRestrictions(card, playerAptentingtoPlay);
+      if(enoughFortitude& validSubtype&otherRestrictions) listOfPlayableCards.Add(cardPosition);
     }
     return listOfPlayableCards;
   }
@@ -150,28 +157,75 @@ public partial class CardGame
 
     return returnValidTypes;
   }
+
+  public List<int> CheckOpponentReversalOptions()
+  {
+    var reversalType = new List<string> { "Reversal" };
+    var playableCards = GetPlayableCardsFromHand(Opponent,reversalType);
+    Console.WriteLine("Buscando en la mano del oponente para ver si puede revertir alguna carta");
+    return playableCards;
+  }
+
+  public int GiveTheOpponentTheChanceToUseReversal(List<int> validCardsIndex)
+  {
+    var validCards = validCardsIndex.Select(validIndex => Opponent.Hand[validIndex]).ToList();
+    ConsolePrint.ShowListOfCards(validCards);
+    const string inputMessage = "Escoge la carta que quieres usar para revertir la carta, -1 para no usar ningun reversal";
+    var oponentInput = ConsolePrint.CheckInput(validCards.Count,inputMessage, -1);
+    return oponentInput;
+  }
+  public int AtemptToPlayCardWithType(Player playerPlayingTheCard,Card cardTobePlayed,string typeSelected)
+  {
+    if (!cardTobePlayed.CanBeReversed) return -1;
+    var opponentHasCardsToRevertThis = CheckOpponentReversalOptions();
+    if (opponentHasCardsToRevertThis.Count <= 0) return -1;
+    var indexChosen = GiveTheOpponentTheChanceToUseReversal(opponentHasCardsToRevertThis);
+    if (indexChosen == -1) return -1;
+    var cardChosen = playerPlayingTheCard.Hand[indexChosen];
+    Console.WriteLine($"EL JUGADOR QUIERE JUGAR EL REVERSAL {cardChosen} aaaaa");
+    return -1;
+  }
+
+  public void MoveACardFromTo(List<Card> from, int cardIndex, List<Card> to)
+  {
+    to.Add(from[cardIndex]);
+    from.RemoveAt(cardIndex);
+  }
+  public void CardsuccessfullyPlayed(Player player, int cardIndex)
+  {
+    var cardPlayed = player.Hand[cardIndex];
+    MoveACardFromTo(player.Hand,cardIndex,player.RingArea);
+    player.CurrentFortitude += (int) cardPlayed.Damage;
+    DamagePhase(CurrentPlayer,Opponent,cardPlayed);
+  }
   public void PlayingCardsFromHand()
   {
-    var validCards = GetPlayableCardsFromHand();
+    
+    var validCardsIndex = GetPlayableCardsFromHand(CurrentPlayer, new List<string>{ "Maneuver","Action" });
+    var validCards = validCardsIndex.Select(validIndex => CurrentPlayer.Hand[validIndex]).ToList();
     ConsolePrint.ShowListOfCards(validCards);
     var inputCardSelected = ConsolePrint.SelectCardToBePlayed(validCards);
-    if (inputCardSelected != -1)
+    if (inputCardSelected == -1) return;
+    var cardSelectedIndex = validCardsIndex[inputCardSelected];
+    var cardSelected = CurrentPlayer.Hand[cardSelectedIndex];
+    Console.WriteLine($"El jugador quiere jugar la carta {cardSelected}");
+    var types = new List<string>{"Maneuver","Action"} ;
+    var validType = ReturnValidTypeToBePlayed(CurrentPlayer,cardSelected,types);
+    var typeSelected = ConsolePrint.SelectType(cardSelected, validType);
+    Console.WriteLine($"El jugador escogió el tipo {typeSelected}");
+    var willBePlayed = AtemptToPlayCardWithType(CurrentPlayer, cardSelected, typeSelected);
+    if (willBePlayed == -1)
     {
-      var cardSelected = validCards[inputCardSelected];
-      Console.WriteLine($"El jugador quiere jugar la carta {cardSelected}");
-      var types = new List<string>{"Maneuver","Action"} ;
-      var validType = ReturnValidTypeToBePlayed(CurrentPlayer,cardSelected,types);
-      var typeSelected = ConsolePrint.SelectType(cardSelected, validType);
-      Console.WriteLine($"El jugador escogió el tipo {typeSelected}");
-
-
+      CardsuccessfullyPlayed(CurrentPlayer,cardSelectedIndex);
     }
+
   }
   public void MainTurn()
   {
     var playingOnMainTurn = true;
     while (playingOnMainTurn)
     {
+      ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
       var currentPlayerOption = ConsolePrint.SelectMainPhaseOptions(CurrentPlayer);
       Console.WriteLine($"El jugador escogió la opcion{currentPlayerOption}");
       switch (currentPlayerOption)
@@ -193,14 +247,24 @@ public partial class CardGame
     
   }
 
-  public void DamagePhase()
+  public void DamagePhase(Player damageFrom,Player damageTo,Card card)
   {
+    ConsolePrint.ShowListOfCards(damageFrom.RingArea);
     Console.WriteLine("DamagePhase");
+    var damage = card.Damage;
+    for (var unitDamage = 0; unitDamage < damage; unitDamage++)
+    {
+      if (damageTo.Deck.Cards != null)
+        MoveACardFromTo(damageTo.Deck.Cards, damageTo.Deck.Cards.Count - 1, damageTo.RingSide);
+    }
   }
   public void EndTurnPhase()
   {
     Console.WriteLine("EndTurnPhase");
+    Console.WriteLine("EndTurnPhase");
+    Console.WriteLine("EndTurnPhase");
     ChangeCurrentPlayer();
+    Console.WriteLine($"{CurrentPlayer.Name}{Opponent.Name}");
   }
 
   public void Playing()
@@ -211,12 +275,42 @@ public partial class CardGame
       PreDrawPhase();
       DrawPhase();
       MainTurn();
-      DamagePhase();
       EndTurnPhase();
       PreDrawPhase();
       DrawPhase();
       MainTurn();
-      DamagePhase();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
+      EndTurnPhase();
+      PreDrawPhase();
+      DrawPhase();
+      MainTurn();
       EndTurnPhase();
       CurrenlyPlaying = false;
     }

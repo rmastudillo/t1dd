@@ -126,7 +126,7 @@ public class ConsolePrint
         var playerOption =  CheckInput(cardsNumberofOptions, mainPhaseInputMessage, lowerOption);
         return playerOption;
     }
-    private int CheckInput(int numberOfOptions,string inputMessage,int lowerNumberOfOptions=0)
+    public int CheckInput(int numberOfOptions,string inputMessage,int lowerNumberOfOptions=0)
     {
         int? output = null;
         while (output==null)
@@ -209,9 +209,6 @@ public class ConsolePrint
 
     public string SelectType(Card card, List<string> availableTypes)
     {
-        Console.WriteLine($"Selecciona el tipo en el que quieres jugar la carta {card.Title} \n" +
-                          $"Puedes ingresar -1 para volver al menu");
-        int numberofOptions = availableTypes.Count;
         const int lowerOption = -1;
         var cardsNumberofOptions = availableTypes.Count + 1;
         var optionCounter = 0;
@@ -220,7 +217,9 @@ public class ConsolePrint
             Console.WriteLine($"[{optionCounter}] {type}");
             optionCounter++;
         }
-        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {cardsNumberofOptions - 2}): ";
+        Console.WriteLine($"Selecciona el tipo en el que quieres jugar la carta {card.Title} \n" +
+                          $"Puedes ingresar -1 para volver al menu");
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre -1 y {cardsNumberofOptions - 2}): ";
         var playerOption =  CheckInput(cardsNumberofOptions, mainPhaseInputMessage, lowerOption);
         return playerOption == -1 ? "Back" : availableTypes[playerOption];
     }
