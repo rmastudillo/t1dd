@@ -119,12 +119,18 @@ public class ConsolePrint
 
     public int SelectCardToBePlayed(List<Card> cards)
     {
-        var cardsNumberofOptions = cards.Count + 1;
-        const int lowerOption = -1;
-        Console.WriteLine("Ingresa el ID de la carta que quieres jugar. Puedes ingresar -1 para volver al menu");
-        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {cardsNumberofOptions - 2}): ";
-        var playerOption =  CheckInput(cardsNumberofOptions, mainPhaseInputMessage, lowerOption);
-        return playerOption;
+        const string messageOfOptions = "Ingresa el ID de la carta que quieres jugar. Puedes ingresar -1 para volver al menu";;
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {cards.Count - 1}): ";
+        if (cards.Count == 0) return -1;
+        return SelectACard(cards,messageOfOptions,mainPhaseInputMessage,false);
+    }
+
+    public int SelectACard(List<Card> listOfCards, string messageToShow, string playerInputMessage, bool hasToSelectSomething)
+    {
+        var cardsNumberOfOptions = listOfCards.Count + 1;
+        Console.WriteLine(messageToShow);
+        return hasToSelectSomething ? CheckInput(cardsNumberOfOptions, playerInputMessage) :
+            CheckInput(cardsNumberOfOptions, playerInputMessage,-1);
     }
     public int CheckInput(int numberOfOptions,string inputMessage,int lowerNumberOfOptions=0)
     {

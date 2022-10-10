@@ -67,9 +67,7 @@ public partial class CardGame
   {
     if (CurrentPlayer.Deck.Superstar.Name == "KANE")
     {
-      Console.WriteLine("\n# Se activa la habilidad de KANE y el oponente descarta 1 carta desde el arsenal\n");
-      if (Opponent.Deck.Cards != null)
-        MoveACardFromTo(Opponent.Deck.Cards, Opponent.Deck.Cards.Count - 1, Opponent.RingSide);
+      KaneSuperStarHability();
     }
     Console.WriteLine("PredrawPhase");
   }
@@ -185,12 +183,7 @@ public partial class CardGame
     Console.WriteLine($"EL JUGADOR QUIERE JUGAR EL REVERSAL {cardChosen} aaaaa");
     return -1;
   }
-
-  public void MoveACardFromTo(List<Card> from, int cardIndex, List<Card> to)
-  {
-    to.Add(from[cardIndex]);
-    from.RemoveAt(cardIndex);
-  }
+  
   public void CardsuccessfullyPlayed(Player player, int cardIndex)
   {
     var cardPlayed = player.Hand[cardIndex];
@@ -231,6 +224,7 @@ public partial class CardGame
       switch (currentPlayerOption)
       {
         case 0:
+          JerichoSuperStarHability();
           break;
         case 1:
           MenuLookCardsOptions();
