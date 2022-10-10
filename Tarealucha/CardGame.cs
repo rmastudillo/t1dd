@@ -16,6 +16,7 @@ public partial class CardGame
   public Player Opponent { get; set;}
   private bool CurrenlyPlaying { get; set; } = true;
   public Dictionary<string, Delegate> DictionaryOfCardEffects { get; set; } = new();
+  public Dictionary<string, Action> SuperStarActivation { get; set; } = new();
 
   public CardGame(ConsolePrint consolePrint, List<Deck> playersDecks)
   {
@@ -53,11 +54,13 @@ public partial class CardGame
   {
     if (CurrentPlayer.Name == "PlayerOne")
     {
+      CurrentPlayer.SuperStarHabilityAvailable = true;
       CurrentPlayer = PlayerTwo;
       Opponent = PlayerOne;
     }
     else
     {
+      CurrentPlayer.SuperStarHabilityAvailable = true;
       CurrentPlayer = PlayerOne;
       Opponent = PlayerTwo;
     }
@@ -65,16 +68,47 @@ public partial class CardGame
   
   public void PreDrawPhase()
   {
-    if (CurrentPlayer.Deck.Superstar.Name == "KANE")
+    switch (CurrentPlayer.Deck.Superstar.Name)
     {
-      KaneSuperStarHability();
+      case "KANE":
+        KaneSuperStarHability();
+        CurrentPlayer.SuperStarHabilityAvailable = false;
+        break;
+      case "HHH":
+        CurrentPlayer.SuperStarHabilityAvailable = false;
+        break;
+      case "THE ROCK":
+      {
+        if (CurrentPlayer.RingSide.Count > 0)
+        {
+          Console.WriteLine("Puedes activar tu Super Star Hability, ¿quieres hacerlo?");
+          const string inputmessage = "Ingresa una opción:\n" +
+                                      "[0] No usar mi habilidad\n" +
+                                      "[1] Sí usar mi habilidad y recuperar una carta desde el RingSide";
+          var playerInput = ConsolePrint.CheckInput(2, inputmessage);
+          if (playerInput == 1)
+          {
+            SuperStarActivation[CurrentPlayer.Deck.Superstar.Name]();
+          }
+        }
+
+        CurrentPlayer.SuperStarHabilityAvailable = false;
+        break;
+      }
     }
+
     Console.WriteLine("PredrawPhase");
   }
   public void DrawPhase()
   {
     Console.WriteLine("DrawPhase");
     DrawCards(CurrentPlayer,1,"Deck","Hand");
+    if (CurrentPlayer.Deck.Superstar.Name == "MANKIND")
+    {
+      DrawCards(CurrentPlayer,1,"Deck","Hand");
+      CurrentPlayer.SuperStarHabilityAvailable = false;
+    }
+   
   }
 
   public void MenuLookCardsOptions()
@@ -224,7 +258,16 @@ public partial class CardGame
       switch (currentPlayerOption)
       {
         case 0:
-          JerichoSuperStarHability();
+          if (CurrentPlayer.SuperStarHabilityAvailable)
+          {
+            SuperStarActivation[CurrentPlayer.Deck.Superstar.Name]();
+            CurrentPlayer.SuperStarHabilityAvailable = false;
+          }
+          else
+          {
+            Console.WriteLine("NO puedes usar tu superstarhability");
+          }
+
           break;
         case 1:
           MenuLookCardsOptions();
@@ -241,11 +284,15 @@ public partial class CardGame
     
   }
 
-  public void DamagePhase(Player damageFrom,Player damageTo,Card card)
+  public void DamagePhase(Player damageFrom, Player damageTo, Card card)
   {
     ConsolePrint.ShowListOfCards(damageFrom.RingArea);
     Console.WriteLine("DamagePhase");
     var damage = card.Damage;
+    if (Opponent.Deck.Superstar.Name == "MANKIND")
+    {
+      damage--;
+    }
     for (var unitDamage = 0; unitDamage < damage; unitDamage++)
     {
       if (damageTo.Deck.Cards != null)
@@ -254,9 +301,6 @@ public partial class CardGame
   }
   public void EndTurnPhase()
   {
-    Console.WriteLine("EndTurnPhase");
-    Console.WriteLine("EndTurnPhase");
-    Console.WriteLine("EndTurnPhase");
     ChangeCurrentPlayer();
     Console.WriteLine($"{CurrentPlayer.Name}{Opponent.Name}");
   }

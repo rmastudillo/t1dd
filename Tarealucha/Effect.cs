@@ -25,6 +25,10 @@ public partial class CardGame
     private void LoadEffects()
     {
       DictionaryOfCardEffects["draw"] =  new Func<Player, Card, string,bool>(CardEffectDrawCards);
+      SuperStarActivation.Add("STONE COLD",StoneColdSuperStarHability);
+      SuperStarActivation.Add("JERICHO",JerichoSuperStarHability);
+      SuperStarActivation.Add("THE ROCK",TheRockSuperStarHability);
+      SuperStarActivation.Add("THE UNDERTAKER", UndertakerSuperStarHability);
     }
 
     public void DiscardCard(Player player, int cardIndex, string from)
@@ -63,5 +67,52 @@ public partial class CardGame
       JerichoDiscard(CurrentPlayer);
       JerichoDiscard(Opponent);
       
+    }
+    public void StoneColdSuperStarHability()
+    {
+      DrawCards(CurrentPlayer,1,"Deck","Hand");
+      ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
+      const string discardMessage = "Activaste la habilidad de Stone Cold, " +
+                                    "debes escoger una carta de tu mano para que sea descartada";
+      var playerInputMessage =  $"\n (Ingresa un número entre 0 y {CurrentPlayer.Hand.Count - 1}): ";
+      var playerInput = ConsolePrint.SelectACard(
+        CurrentPlayer.Hand, discardMessage, playerInputMessage, true);
+      CurrentPlayer.Deck.Cards.Insert(0, CurrentPlayer.Hand[playerInput]);
+      CurrentPlayer.Hand.RemoveAt(playerInput);
+    }
+    public void TheRockSuperStarHability()
+    { 
+      ConsolePrint.ShowListOfCards(CurrentPlayer.RingSide);
+      const string discardMessage = "Activaste la habilidad de The Rock, " +
+                                    "debes escoger una carta de tu Ring side para volver al fondo de tu Arsenal";
+      var playerInputMessage =  $"\n (Ingresa un número entre 0 y {CurrentPlayer.RingSide.Count - 1}): ";
+      var playerInput = ConsolePrint.SelectACard(
+        CurrentPlayer.RingSide, discardMessage, playerInputMessage, true);
+      CurrentPlayer.Deck.Cards.Insert(0, CurrentPlayer.RingSide[playerInput]);
+      CurrentPlayer.RingSide.RemoveAt(playerInput);
+    }
+    public void UndertakerSuperStarHability()
+    { 
+      ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
+      const string discardMessage = "Activaste la habilidad de The Undertaker, " +
+                                    "debes escoger dos cartas de tu mano para descartar";
+      var playerInputMessage =  $"\n (Ingresa un número entre 0 y {CurrentPlayer.Hand.Count - 1}): ";
+      var playerInput = ConsolePrint.SelectACard(
+        CurrentPlayer.Hand, discardMessage, playerInputMessage, true);
+      DiscardCard(CurrentPlayer,playerInput,"Hand");
+      ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
+      const string discardMessageTwo = "Activaste la habilidad de The Undertaker, " +
+                                    "debes escoger otra carta de tu mano para descartar";
+      var playerInputTwo = ConsolePrint.SelectACard(
+        CurrentPlayer.Hand, discardMessageTwo, playerInputMessage, true);
+      DiscardCard(CurrentPlayer,playerInputTwo,"Hand");
+      ConsolePrint.ShowListOfCards(CurrentPlayer.RingSide);
+      const string drawFromRingsideMessage = "Ahora debes escoger una carta de tu Ring side para poner en tu mano";
+      var playerInputRingSideMessage =  $"\n (Ingresa un número entre 0 y {CurrentPlayer.RingSide.Count - 1}): ";
+      var playerInputRingside = ConsolePrint.SelectACard(
+        CurrentPlayer.RingSide, drawFromRingsideMessage, playerInputRingSideMessage, true);
+      CurrentPlayer.Hand.Add(CurrentPlayer.RingSide[playerInputRingside]);
+      CurrentPlayer.RingSide.RemoveAt(playerInputRingside);
+
     }
 }
