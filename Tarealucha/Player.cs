@@ -9,6 +9,7 @@ public class Player
     public List<Card> RingSide { get; set;} = new List<Card>();
     public int CurrentFortitude { get; set; } = 0;
     public bool SuperStarHabilityAvailable = true;
+    public bool Playing = true;
 
     public Player(Deck deck, string name)
     {

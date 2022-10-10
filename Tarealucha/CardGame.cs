@@ -15,7 +15,7 @@ public partial class CardGame
   public Player CurrentPlayer { get; set;}
   public Player Opponent { get; set;}
   private bool CurrenlyPlaying { get; set; } = true;
-  public Dictionary<string, Delegate> DictionaryOfCardEffects { get; set; } = new();
+  public Dictionary<string, Action<Card,string,int>> DictionaryOfCardEffects { get; set; } = new();
   public Dictionary<string, Action> SuperStarActivation { get; set; } = new();
 
   public CardGame(ConsolePrint consolePrint, List<Deck> playersDecks)
@@ -205,8 +205,9 @@ public partial class CardGame
   {
     var validCards = validCardsIndex.Select(validIndex => Opponent.Hand[validIndex]).ToList();
     ConsolePrint.ShowListOfCards(validCards);
-    const string inputMessage = "Escoge la carta que quieres usar para revertir la carta, -1 para no usar ningun reversal";
+    const string inputMessage = "\nEscoge la carta que quieres usar para revertir la carta, -1 para no usar ningun reversal: ";
     var oponentInput = ConsolePrint.CheckInput(validCards.Count,inputMessage, -1);
+    Console.WriteLine("\n");
     return oponentInput;
   }
   public int AtemptToPlayCardWithType(Player playerPlayingTheCard,Card cardTobePlayed,string typeSelected)
@@ -220,12 +221,46 @@ public partial class CardGame
     Console.WriteLine($"EL JUGADOR QUIERE JUGAR EL REVERSAL {cardChosen} aaaaa");
     return -1;
   }
-  
-  public void CardsuccessfullyPlayed(Player player, int cardIndex)
+
+  public void EffectPhase(Card cardPlayed,string typeSelected)
+  {
+    if (typeSelected == "Maneuver")
+    {
+      if (cardPlayed.EffectAsManeuver == null) return;
+      for(var effectIndex = 0;effectIndex<cardPlayed.EffectAsManeuver.Count;effectIndex++)
+      {
+        var effect = cardPlayed.EffectAsManeuver[effectIndex];
+        if (!DictionaryOfCardEffects.ContainsKey(effect.Type))
+        {
+          throw new InvalidOperationException(
+            $"El efecto --{effect.Type}-- No se ha implementado");
+        }
+
+        DictionaryOfCardEffects[effect.Type](cardPlayed,typeSelected,effectIndex);
+      }
+    }
+    if (typeSelected == "Action")
+    {
+      if (cardPlayed.EffectAsAction == null) return;
+      for(var effectIndex = 0;effectIndex<cardPlayed.EffectAsAction.Count;effectIndex++)
+      {
+        var effect = cardPlayed.EffectAsAction[effectIndex];
+        if (!DictionaryOfCardEffects.ContainsKey(effect.Type))
+        {
+          throw new InvalidOperationException(
+            $"El efecto --{effect.Type}-- No se ha implementado");
+        }
+
+        DictionaryOfCardEffects[effect.Type](cardPlayed,typeSelected,effectIndex);
+      }
+    }
+  }
+  public void CardsuccessfullyPlayed(Player player, int cardIndex,string typeSelected)
   {
     var cardPlayed = player.Hand[cardIndex];
     MoveACardFromTo(player.Hand,cardIndex,player.RingArea);
-    player.CurrentFortitude += (int) cardPlayed.Damage;
+    player.CurrentFortitude +=  cardPlayed.Damage;
+    EffectPhase(cardPlayed,typeSelected);
     DamagePhase(CurrentPlayer,Opponent,cardPlayed);
   }
   public void PlayingCardsFromHand()
@@ -246,14 +281,13 @@ public partial class CardGame
     var willBePlayed = AtemptToPlayCardWithType(CurrentPlayer, cardSelected, typeSelected);
     if (willBePlayed == -1)
     {
-      CardsuccessfullyPlayed(CurrentPlayer,cardSelectedIndex);
+      CardsuccessfullyPlayed(CurrentPlayer,cardSelectedIndex,typeSelected);
     }
 
   }
   public void MainTurn()
   {
-    var playingOnMainTurn = true;
-    while (playingOnMainTurn)
+    while (CurrentPlayer.Playing)
     {
       ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
       var currentPlayerOption = ConsolePrint.SelectMainPhaseOptions(CurrentPlayer);
@@ -279,7 +313,7 @@ public partial class CardGame
           PlayingCardsFromHand();
           break;
         case 3:
-          playingOnMainTurn = false;
+          CurrentPlayer.Playing = false;
           break;
       }
     }
@@ -289,8 +323,6 @@ public partial class CardGame
 
   public void DamagePhase(Player damageFrom, Player damageTo, Card card)
   {
-    ConsolePrint.ShowListOfCards(damageFrom.RingArea);
-    Console.WriteLine("DamagePhase");
     var damage = card.Damage;
     if (Opponent.Deck.Superstar.Name == "MANKIND")
     {
@@ -299,7 +331,19 @@ public partial class CardGame
     for (var unitDamage = 0; unitDamage < damage; unitDamage++)
     {
       if (damageTo.Deck.Cards != null)
+      {
         MoveACardFromTo(damageTo.Deck.Cards, damageTo.Deck.Cards.Count - 1, damageTo.RingSide);
+        if (damageTo.RingSide.Last().Types.Contains("Reversal"))
+        {
+          if (Opponent.CurrentFortitude >= damageTo.RingSide.Last().Fortitude)
+          {
+            CurrentPlayer.Playing = false;
+            damage = 0;
+            Console.WriteLine($"La carga {card.Title} fue revertida desde el arsenal de {Opponent.Deck.Superstar.Name}");
+          }
+        }
+      }
+      
     }
   }
   public void EndTurnPhase()
@@ -317,43 +361,6 @@ public partial class CardGame
       DrawPhase();
       MainTurn();
       EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      PreDrawPhase();
-      DrawPhase();
-      MainTurn();
-      EndTurnPhase();
-      CurrenlyPlaying = false;
     }
   }
 }

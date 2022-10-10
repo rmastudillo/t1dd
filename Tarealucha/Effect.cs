@@ -17,14 +17,73 @@ public partial class CardGame
        fromList?.RemoveAt(fromList.Count-1);
      }
   }
-    private bool CardEffectDrawCards(Player player, Card card,string effectAs)
+    private void CardEffectDrawCards(Card card, string cardType,int effectPos)
     {
       Console.WriteLine("Robar cartas desde una carta efecto");
-      return true;
+    }
+    private void CardEffectLookHand(Card card, string cardType,int effectPos)
+    {
+      if (cardType == "Maneuver")
+      { 
+        var effect = card.EffectAsManeuver[effectPos];
+        if (effect.Target == "opponent")
+        {
+          Console.WriteLine("# Puedes ver la mano del oponente");
+          ConsolePrint.ShowListOfCards(Opponent.Hand);
+        }
+
+      }
+
+      if (cardType == "Action")
+      {
+        
+        var effect = card.EffectAsAction[effectPos];
+        if (effect.Target == "opponent")
+        {
+          Console.WriteLine("# Puedes ver la mano del oponente");
+          ConsolePrint.ShowListOfCards(Opponent.Hand);
+        }
+      }
+    }
+
+    public void CardEffectDiscardCards(Card card, string cardType, int effectPos)
+    {
+      if (cardType == "Maneuver")
+      { 
+        var effect = card.EffectAsManeuver[effectPos];
+        if (effect.Target == "opponent")
+        {
+          Console.WriteLine($"Se activa el efecto de {card.Title}  y descartas {effect.Value} cartas");
+          DiscardCard(Opponent,Opponent.Deck.Cards.Count-1,"Deck");
+        }
+        if (effect.Target == "player")
+        {
+          Console.WriteLine($"Se activa el efecto de {card.Title}  y descartas {effect.Value} cartas");
+          DiscardCard(CurrentPlayer,CurrentPlayer.Deck.Cards.Count-1,"Deck");
+        }
+
+      }
+
+      if (cardType == "Action")
+      {
+        var effect = card.EffectAsManeuver[effectPos];
+        if (effect.Target == "opponent")
+        {
+          Console.WriteLine($"Se activa el efecto de {card.Title}  y descartas {effect.Value} cartas");
+          DiscardCard(Opponent,Opponent.Deck.Cards.Count-1,"Deck");
+        }
+        if (effect.Target == "player")
+        {
+          Console.WriteLine($"Se activa el efecto de {card.Title}  y descartas {effect.Value} cartas");
+          DiscardCard(CurrentPlayer,CurrentPlayer.Deck.Cards.Count-1,"Deck");
+        }
+      }
     }
     private void LoadEffects()
     {
-      DictionaryOfCardEffects["draw"] =  new Func<Player, Card, string,bool>(CardEffectDrawCards);
+      DictionaryOfCardEffects["draw"] = CardEffectDrawCards;
+      DictionaryOfCardEffects["lookhand"] = CardEffectLookHand;
+      DictionaryOfCardEffects["discard"] = CardEffectDiscardCards;
       SuperStarActivation.Add("STONE COLD",StoneColdSuperStarHability);
       SuperStarActivation.Add("JERICHO",JerichoSuperStarHability);
       SuperStarActivation.Add("THE ROCK",TheRockSuperStarHability);
@@ -36,6 +95,7 @@ public partial class CardGame
       List<Card>? fromList = null;
       var toList = player.RingSide;
       if (from == "Hand") fromList = player.Hand;
+      if (from == "Deck") fromList = player.Deck.Cards;
       if (fromList == null) throw new InvalidOperationException("Error DiscardCard, fromList is null");
       MoveACardFromTo(fromList, cardIndex, toList);
     }
@@ -92,7 +152,8 @@ public partial class CardGame
       CurrentPlayer.RingSide.RemoveAt(playerInput);
     }
     public void UndertakerSuperStarHability()
-    { 
+    {
+      if (CurrentPlayer.Hand.Count < 2) return;
       ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
       const string discardMessage = "Activaste la habilidad de The Undertaker, " +
                                     "debes escoger dos cartas de tu mano para descartar";
@@ -102,7 +163,7 @@ public partial class CardGame
       DiscardCard(CurrentPlayer,playerInput,"Hand");
       ConsolePrint.ShowListOfCards(CurrentPlayer.Hand);
       const string discardMessageTwo = "Activaste la habilidad de The Undertaker, " +
-                                    "debes escoger otra carta de tu mano para descartar";
+                                       "debes escoger otra carta de tu mano para descartar";
       var playerInputTwo = ConsolePrint.SelectACard(
         CurrentPlayer.Hand, discardMessageTwo, playerInputMessage, true);
       DiscardCard(CurrentPlayer,playerInputTwo,"Hand");
@@ -113,6 +174,5 @@ public partial class CardGame
         CurrentPlayer.RingSide, drawFromRingsideMessage, playerInputRingSideMessage, true);
       CurrentPlayer.Hand.Add(CurrentPlayer.RingSide[playerInputRingside]);
       CurrentPlayer.RingSide.RemoveAt(playerInputRingside);
-
     }
 }
