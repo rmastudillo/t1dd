@@ -93,10 +93,10 @@ public class ConsolePrint
         Console.WriteLine("PreDraw;s");
     }
 
-    public int MenuOptions(int numberOfOptions, IEnumerable<string> menuMessage, string inputMessage)
+    public int MenuOptions(int numberOfOptions, IEnumerable<string> menuMessage, string inputMessage, int minOption = 0)
     {
         Console.WriteLine(string.Join("",menuMessage));
-        return CheckInput(numberOfOptions, inputMessage);
+        return CheckInput(numberOfOptions, inputMessage,minOption);
     }
     public int SelectMainPhaseOptions(Player currentPlayer)
     {
@@ -104,16 +104,19 @@ public class ConsolePrint
         {
             $"Es el turno de {currentPlayer.Name}: {currentPlayer.Deck.Superstar.Name}\n",
             "¿Qué quieres hacer?:\n",
-            "        [0] Usar mi super habilidad \n",
+            currentPlayer.SuperStarHabilityAvailable? 
+            "        [0] Usar mi super habilidad \n":"",
             "        [1] Ver mis cartas o las de mi oponente\n",
             "        [2] Jugar una carta de mi mano\n",
             "        [3] Terminar mi turno"});
         const int mainPhaseNumberofOptions = 4;
-        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {mainPhaseNumberofOptions - 1}: ";
+        var minOption = 0;
+        if (!currentPlayer.SuperStarHabilityAvailable) minOption++;
+        var mainPhaseInputMessage = $"\n (Ingresa un número entre {minOption} y {mainPhaseNumberofOptions - 1}: ";
         var playerOption = MenuOptions(
             mainPhaseNumberofOptions,
             mainPhaseOptions,
-            mainPhaseInputMessage);
+            mainPhaseInputMessage,minOption);
         return playerOption;
     }
 
@@ -172,7 +175,7 @@ public class ConsolePrint
             "        [4] El ringside de mi oponente\n",
             "        [5] El ring area de mi oponente" });
         const int numberofOptions = 6;
-        var mainPhaseInputMessage = $"\n (Ingresa un número entre 0 y {numberofOptions - 1}: ";
+        var mainPhaseInputMessage = $"\n(Ingresa un número entre 0 y {numberofOptions - 1}): ";
         var playerOption = MenuOptions(
             numberofOptions,
             mainPhaseOptions,

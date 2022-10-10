@@ -77,6 +77,9 @@ public partial class CardGame
       case "HHH":
         CurrentPlayer.SuperStarHabilityAvailable = false;
         break;
+      case "MANKIND":
+        CurrentPlayer.SuperStarHabilityAvailable = false;
+        break;
       case "THE ROCK":
       {
         if (CurrentPlayer.RingSide.Count > 0)
