@@ -66,7 +66,7 @@ public partial class CardGame
 
       if (cardType == "Action")
       {
-        var effect = card.EffectAsManeuver[effectPos];
+        var effect = card.EffectAsAction[effectPos];
         if (effect.Target == "opponent")
         {
           Console.WriteLine($"Se activa el efecto de {card.Title}  y descartas {effect.Value} cartas");

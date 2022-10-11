@@ -57,12 +57,14 @@ public partial class CardGame
       CurrentPlayer.SuperStarHabilityAvailable = true;
       CurrentPlayer = PlayerTwo;
       Opponent = PlayerOne;
+      CurrentPlayer.Playing = true;
     }
     else
     {
       CurrentPlayer.SuperStarHabilityAvailable = true;
       CurrentPlayer = PlayerOne;
       Opponent = PlayerTwo;
+      CurrentPlayer.Playing = true;
     }
   }
   
@@ -201,8 +203,18 @@ public partial class CardGame
     return playableCards;
   }
 
-  public int GiveTheOpponentTheChanceToUseReversal(List<int> validCardsIndex)
+  public List<int> SelectValidReversals(List<int> reversalsCardsIndex,Card cardPlayed)
   {
+    var validIndex = new List<int>();
+    foreach (var cardIndex in reversalsCardsIndex)
+    {
+      continue;
+    }
+    return validIndex;
+  }
+  public int GiveTheOpponentTheChanceToUseReversal(List<int> validCardsIndex,Card cardPlayed)
+  {
+    var validReversalsIndex = SelectValidReversals(validCardsIndex, cardPlayed);
     var validCards = validCardsIndex.Select(validIndex => Opponent.Hand[validIndex]).ToList();
     ConsolePrint.ShowListOfCards(validCards);
     const string inputMessage = "\nEscoge la carta que quieres usar para revertir la carta, -1 para no usar ningun reversal: ";
@@ -215,7 +227,7 @@ public partial class CardGame
     if (!cardTobePlayed.CanBeReversed) return -1;
     var opponentHasCardsToRevertThis = CheckOpponentReversalOptions();
     if (opponentHasCardsToRevertThis.Count <= 0) return -1;
-    var indexChosen = GiveTheOpponentTheChanceToUseReversal(opponentHasCardsToRevertThis);
+    var indexChosen = GiveTheOpponentTheChanceToUseReversal(opponentHasCardsToRevertThis,cardTobePlayed);
     if (indexChosen == -1) return -1;
     var cardChosen = playerPlayingTheCard.Hand[indexChosen];
     Console.WriteLine($"EL JUGADOR QUIERE JUGAR EL REVERSAL {cardChosen} aaaaa");
@@ -230,13 +242,13 @@ public partial class CardGame
       for(var effectIndex = 0;effectIndex<cardPlayed.EffectAsManeuver.Count;effectIndex++)
       {
         var effect = cardPlayed.EffectAsManeuver[effectIndex];
-        if (!DictionaryOfCardEffects.ContainsKey(effect.Type))
+        if (effect.Type != null && !DictionaryOfCardEffects.ContainsKey(effect.Type))
         {
           throw new InvalidOperationException(
             $"El efecto --{effect.Type}-- No se ha implementado");
         }
 
-        DictionaryOfCardEffects[effect.Type](cardPlayed,typeSelected,effectIndex);
+        if (effect.Type != null) DictionaryOfCardEffects[effect.Type](cardPlayed, typeSelected, effectIndex);
       }
     }
     if (typeSelected == "Action")
@@ -289,7 +301,7 @@ public partial class CardGame
   {
     while (CurrentPlayer.Playing)
     {
-      ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
+      ConsolePrint.NewTurnInfo(PlayerOne, PlayerTwo);
       var currentPlayerOption = ConsolePrint.SelectMainPhaseOptions(CurrentPlayer);
       Console.WriteLine($"El jugador escogió la opcion{currentPlayerOption}");
       switch (currentPlayerOption)
@@ -317,8 +329,7 @@ public partial class CardGame
           break;
       }
     }
-    ConsolePrint.NewTurnInfo(PlayerOne,PlayerTwo);
-    
+
   }
 
   public void DamagePhase(Player damageFrom, Player damageTo, Card card)
@@ -330,7 +341,7 @@ public partial class CardGame
     }
     for (var unitDamage = 0; unitDamage < damage; unitDamage++)
     {
-      if (damageTo.Deck.Cards != null)
+      if (damageTo.Deck.Cards.Count >0)
       {
         MoveACardFromTo(damageTo.Deck.Cards, damageTo.Deck.Cards.Count - 1, damageTo.RingSide);
         if (damageTo.RingSide.Last().Types.Contains("Reversal"))
@@ -343,13 +354,20 @@ public partial class CardGame
           }
         }
       }
+      else
+      {
+        damage = 0;
+        Console.WriteLine($"El jugador {CurrentPlayer.Deck.Superstar.Name} ha ganado la partida!");
+        CurrenlyPlaying = false;
+        CurrentPlayer.Playing = false;
+
+      }
       
     }
   }
   public void EndTurnPhase()
   {
     ChangeCurrentPlayer();
-    Console.WriteLine($"{CurrentPlayer.Name}{Opponent.Name}");
   }
 
   public void Playing()
