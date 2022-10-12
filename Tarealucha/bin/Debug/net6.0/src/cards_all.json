@@ -11,7 +11,9 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Head Butt",
@@ -25,14 +27,16 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Roundhouse Punch",
@@ -46,7 +50,9 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Haymaker",
@@ -60,16 +66,18 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, all Strike maneuvers are +1D for the rest of this turn.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "buff",
-                "ApplyTo": "Strike",
-                "Stat": "Damage",
-                "Value": 1,
-                "HowLong": "thisTurn"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "ApplyTo": "Strike",
+                    "Stat": "Damage",
+                    "Value": 1,
+                    "HowLong": "thisTurn"
+                }
+            ]
+        }
     },
     {
         "Title": "Back Body Drop",
@@ -86,29 +94,31 @@
         "RestrictionToBePlayed": {
             "CardPlayedBefore": "Irish Whip"
         },
-        "EffectAsManeuver": [
-            {
-                "Type": "choose",
-                "Options": [
-                    [
-                        {
-                            "Target": "player",
-                            "Type": "draw",
-                            "From": "topdeck",
-                            "Value": 2
-                        }
-                    ],
-                    [
-                        {
-                            "Target": "opponent",
-                            "Type": "discard",
-                            "From": "hand",
-                            "Value": 2
-                        }
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Type": "choose",
+                    "Options": [
+                        [
+                            {
+                                "Target": "player",
+                                "Type": "draw",
+                                "From": "topdeck",
+                                "Value": 2
+                            }
+                        ],
+                        [
+                            {
+                                "Target": "opponent",
+                                "Type": "discard",
+                                "From": "hand",
+                                "Value": 2
+                            }
+                        ]
                     ]
-                ]
-            }
-        ]
+                }
+            ]
+        }
     },
     {
         "Title": "Big Boot",
@@ -122,7 +132,9 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Kick",
@@ -136,14 +148,16 @@
         "Damage": 5,
         "StunValue": 0,
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "From": "topdeck",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "From": "topdeck",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Running Elbow Smash",
@@ -157,14 +171,16 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "From": "topdeck",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "From": "topdeck",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Discus Punch",
@@ -178,16 +194,18 @@
         "Damage": 9,
         "StunValue": 0,
         "CardEffect": "Reversals to this maneuver are +2D.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "buff",
-                "ApplyTo": "Reversal",
-                "Stat": "Damage",
-                "Value": 2,
-                "HowLong": "nextCard"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "buff",
+                    "ApplyTo": "Reversal",
+                    "Stat": "Damage",
+                    "Value": 2,
+                    "HowLong": "nextCard"
+                }
+            ]
+        }
     },
     {
         "Title": "Superkick",
@@ -201,19 +219,21 @@
         "Damage": 5,
         "StunValue": 1,
         "CardEffect": "When successfully played, +5D if played after a 5D or greater maneuver.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "conditionalbuff",
-                "IfStatement": {
-                    "CardTypeBefore": "Maneuver",
-                    "MinDamageRequired": 5
-                },
-                "ApplyTo": "thisCard",
-                "Value": "+5D",
-                "HowLong": "thisDamagephase"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "conditionalbuff",
+                    "IfStatement": {
+                        "CardTypeBefore": "Maneuver",
+                        "MinDamageRequired": 5
+                    },
+                    "ApplyTo": "thisCard",
+                    "Value": "+5D",
+                    "HowLong": "thisDamagephase"
+                }
+            ]
+        }
     },
     {
         "Title": "Spinning Heel Kick",
@@ -227,14 +247,16 @@
         "Damage": 5,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Clothesline",
@@ -248,16 +270,18 @@
         "Damage": 7,
         "StunValue": 1,
         "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "buff",
-                "ApplyTo": "Maneuver",
-                "Stat": "Damage",
-                "Value": 2,
-                "HowLong": "nextCard"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "ApplyTo": "Maneuver",
+                    "Stat": "Damage",
+                    "Value": 2,
+                    "HowLong": "nextCard"
+                }
+            ]
+        }
     },
     {
         "Title": "Chair Shot",
@@ -273,9 +297,9 @@
         "Damage": 10,
         "StunValue": 1,
         "CardEffect": "",
-        "EffectAsManeuver": [
-            {}
-        ]
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Hurricanrana",
@@ -289,9 +313,9 @@
         "Damage": 10,
         "StunValue": 1,
         "CardEffect": "",
-        "EffectAsManeuver": [
-            {}
-        ]
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Hip Toss",
@@ -305,9 +329,9 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": [
-            {}
-        ]
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Arm Drag",
@@ -321,14 +345,16 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Russian Leg Sweep",
@@ -342,7 +368,9 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Snap Mare",
@@ -356,16 +384,18 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, if your next card played this turn is a Strike maneuver it is +2D.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "buff",
-                "ApplyTo": "Strike",
-                "Stat": "Damage",
-                "Value": 2,
-                "HowLong": "nextCard"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "ApplyTo": "Strike",
+                    "Stat": "Damage",
+                    "Value": 2,
+                    "HowLong": "nextCard"
+                }
+            ]
+        }
     },
     {
         "Title": "Gut Buster",
@@ -379,7 +409,9 @@
         "Damage": 5,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Body Slam",
@@ -393,7 +425,9 @@
         "Damage": 6,
         "StunValue": 1,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Back Breaker",
@@ -407,7 +441,9 @@
         "Damage": 7,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Double Leg Takedown",
@@ -421,14 +457,16 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, you may draw 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "draw",
-                "From": "topdeck",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "draw",
+                    "From": "topdeck",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Fireman's Carry",
@@ -442,12 +480,14 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, you may look at your opponent's hand.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "lookhand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "lookhand"
+                }
+            ]
+        }
     },
     {
         "Title": "Headlock Takedown",
@@ -461,14 +501,16 @@
         "Damage": 5,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must draw 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "draw",
-                "Value": 1,
-                "From": "topdeck"
-            }
-        ]
+        "Effect": {
+            "Manuever": [
+                {
+                    "Target": "opponent",
+                    "Type": "draw",
+                    "Value": 1,
+                    "From": "topdeck"
+                }
+            ]
+        }
     },
     {
         "Title": "Atomic Facebuster",
@@ -482,7 +524,9 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Atomic Drop",
@@ -496,16 +540,18 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "When successfully played, if your next card played this turn is a maneuver it is +2D.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "buff",
-                "ApplyTo": "Maneuver",
-                "Stat": "Damage",
-                "Value": 2,
-                "HowLong": "nextCard"
-            }
-        ]
+        "Effect": {
+            "Manuever": [
+                {
+                    "Target": "player",
+                    "Type": "buff",
+                    "ApplyTo": "Maneuver",
+                    "Stat": "Damage",
+                    "Value": 2,
+                    "HowLong": "nextCard"
+                }
+            ]
+        }
     },
     {
         "Title": "Inverse Atomic Drop",
@@ -519,7 +565,9 @@
         "Damage": 5,
         "StunValue": 1,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Pump Handle Slam",
@@ -533,14 +581,16 @@
         "Damage": 7,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 2 cards.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "Value": 2,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "Value": 2,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Reverse DDT",
@@ -554,14 +604,16 @@
         "Damage": 9,
         "StunValue": 0,
         "CardEffect": "When successfully played, you may draw 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "draw",
-                "Value": 1,
-                "From": "topdeck"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "draw",
+                    "Value": 1,
+                    "From": "topdeck"
+                }
+            ]
+        }
     },
     {
         "Title": "Samoan Drop",
@@ -575,14 +627,16 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Sit Out Powerbomb",
@@ -596,9 +650,9 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": [
-            {}
-        ]
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Bulldog",
@@ -612,24 +666,26 @@
         "Damage": 8,
         "StunValue": 0,
         "CardEffect": "When successfully played, discard 1 card of your choice from your hand. Look at opponent's hand, then choose and discard 1 card from his hand.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "hand"
-            },
-            {
-                "Target": "opponent",
-                "Type": "lookhand"
-            },
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "opponentshand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "hand"
+                },
+                {
+                    "Target": "opponent",
+                    "Type": "lookhand"
+                },
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "opponentshand"
+                }
+            ]
+        }
     },
     {
         "Title": "Fisherman's Suplex",
@@ -643,26 +699,28 @@
         "Damage": 10,
         "StunValue": 0,
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. You may draw 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "topdeck"
-            },
-            {
-                "Target": "player",
-                "Type": "MayDo",
-                "MayDo": [
-                    {
-                        "Target": "player",
-                        "Type": "draw",
-                        "Value": 1,
-                        "From": "topdeck"
-                    }
-                ]
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "topdeck"
+                },
+                {
+                    "Target": "player",
+                    "Type": "MayDo",
+                    "MayDo": [
+                        {
+                            "Target": "player",
+                            "Type": "draw",
+                            "Value": 1,
+                            "From": "topdeck"
+                        }
+                    ]
+                }
+            ]
+        }
     },
     {
         "Title": "DDT",
@@ -676,20 +734,22 @@
         "Damage": 9,
         "StunValue": 1,
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "Value": 1,
-                "From": "topdeck"
-            },
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "Value": 2,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "topdeck"
+                },
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "Value": 2,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Power Slam",
@@ -703,14 +763,16 @@
         "Damage": 10,
         "StunValue": 1,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "Value": 1,
-                "From": "hand"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "Value": 1,
+                    "From": "hand"
+                }
+            ]
+        }
     },
     {
         "Title": "Powerbomb",
@@ -724,28 +786,30 @@
         "Damage": 12,
         "StunValue": 2,
         "CardEffect": "When successfully played, you may draw 1 card. Add +1D for every maneuver with the word \"slam\" in its title in your Ring area.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "MayDo",
-                "MayDo": [
-                    {
-                        "Target": "player",
-                        "Type": "draw",
-                        "Value": 1,
-                        "From": "topdeck"
-                    }
-                ]
-            },
-            {
-                "Target": "player",
-                "Type": "SpecialSlambuff",
-                "SpecialCondition": "# for each slam word in your ring area",
-                "ApplyTo": "thisCard",
-                "Value": "+#D",
-                "HowLong": "thisDamagephase"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "MayDo",
+                    "MayDo": [
+                        {
+                            "Target": "player",
+                            "Type": "draw",
+                            "Value": 1,
+                            "From": "topdeck"
+                        }
+                    ]
+                },
+                {
+                    "Target": "player",
+                    "Type": "SpecialSlambuff",
+                    "SpecialCondition": "# for each slam word in your ring area",
+                    "ApplyTo": "thisCard",
+                    "Value": "+#D",
+                    "HowLong": "thisDamagephase"
+                }
+            ]
+        }
     },
     {
         "Title": "Press Slam",
@@ -759,20 +823,22 @@
         "Damage": 15,
         "StunValue": 2,
         "CardEffect": "When successfully played, you must take the top card of your Arsenal and put it into your Ringside pile. Opponent must discard 2 cards.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "From": "topdeck",
-                "Value": 1
-            },
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 2
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "From": "topdeck",
+                    "Value": 1
+                },
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 2
+                }
+            ]
+        }
     },
     {
         "Title": "Wrist Lock",
@@ -786,7 +852,9 @@
         "Damage": 2,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Arm Bar",
@@ -800,14 +868,16 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, discard 1 card of your choice from your hand.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Chin Lock",
@@ -821,7 +891,9 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Bear Hug",
@@ -835,14 +907,16 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Full Nelson",
@@ -856,18 +930,20 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "drawspecific",
-                "From": "deck",
-                "CardTitle": "Maintain Hold"
-            },
-            {
-                "Target": "player",
-                "Type": "shuffledeck"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "drawspecific",
+                    "From": "deck",
+                    "CardTitle": "Maintain Hold"
+                },
+                {
+                    "Target": "player",
+                    "Type": "shuffledeck"
+                }
+            ]
+        }
     },
     {
         "Title": "Choke Hold",
@@ -882,14 +958,16 @@
         "Damage": 5,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Step Over Toe Hold",
@@ -903,7 +981,9 @@
         "Damage": 6,
         "StunValue": 0,
         "CardEffect": "",
-        "EffectAsManeuver": []
+        "Effect": {
+            "Maneuver": []
+        }
     },
     {
         "Title": "Ankle Lock",
@@ -917,14 +997,16 @@
         "Damage": 2,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must discard 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "discard",
-                "From": "hand",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "discard",
+                    "From": "hand",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Standing Side Headlock",
@@ -938,14 +1020,16 @@
         "Damage": 4,
         "StunValue": 0,
         "CardEffect": "When successfully played, opponent must draw 1 card.",
-        "EffectAsManeuver": [
-            {
-                "Target": "opponent",
-                "Type": "draw",
-                "From": "topdeck",
-                "Value": 1
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "opponent",
+                    "Type": "draw",
+                    "From": "topdeck",
+                    "Value": 1
+                }
+            ]
+        }
     },
     {
         "Title": "Cobra Clutch",
@@ -959,18 +1043,20 @@
         "Damage": 3,
         "StunValue": 0,
         "CardEffect": "When successfully played, look through your Arsenal for the card titled Maintain Hold and place that card in your hand, then shuffle your Arsenal.",
-        "EffectAsManeuver": [
-            {
-                "Target": "player",
-                "Type": "drawspecific",
-                "From": "deck",
-                "CardTitle": "Maintain Hold"
-            },
-            {
-                "Target": "player",
-                "Type": "shuffledeck"
-            }
-        ]
+        "Effect": {
+            "Maneuver": [
+                {
+                    "Target": "player",
+                    "Type": "drawspecific",
+                    "From": "deck",
+                    "CardTitle": "Maintain Hold"
+                },
+                {
+                    "Target": "player",
+                    "Type": "shuffledeck"
+                }
+            ]
+        }
     },
     {
         "Title": "Bow & Arrow",
